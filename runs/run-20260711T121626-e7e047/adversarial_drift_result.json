@@ -1,0 +1,37 @@
+{
+  "run_id": "run-20260711T121626-e7e047",
+  "entity_type": "IT",
+  "drift_simulation_method": "baseline_poisoning: inject calibration-split attack feature vectors as normal-labeled training samples, re-fit IsolationForest, re-evaluate on holdout (eval_seed=1337)",
+  "native_drift_api_available": false,
+  "overall_verdict": "DETECTED \u2014 Model correctly detected brute_force_auth at all drift fractions tested (['10%', '25%', '50%']). Note: this is a synthetic drift simulation, not a real deployment test.",
+  "limitation_note": "SyntheticAttackService has no native gradual-drift API (confirmed in Phase 6 dependency check). Drift is simulated by injecting attack feature vectors into the training data under normal labels (baseline poisoning), then re-training.",
+  "results": [
+    {
+      "drift_fraction": 0.1,
+      "n_injected": 2,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.125,
+      "auroc": 1.0,
+      "verdict": "DETECTED"
+    },
+    {
+      "drift_fraction": 0.25,
+      "n_injected": 5,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.115,
+      "auroc": 1.0,
+      "verdict": "DETECTED"
+    },
+    {
+      "drift_fraction": 0.5,
+      "n_injected": 10,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.12,
+      "auroc": 1.0,
+      "verdict": "DETECTED"
+    }
+  ]
+}

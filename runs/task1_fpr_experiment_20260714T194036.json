@@ -1,0 +1,27 @@
+{
+  "baseline": {
+    "run_id": "run-20260712T160707-a72627",
+    "n_repeats": 40,
+    "fpr_per_seed": [
+      0.385,
+      0.385,
+      0.4,
+      0.36,
+      0.39
+    ],
+    "fpr_mean": 0.384,
+    "note": "prior measured value; actual per-seed in seed_sweep_results.json"
+  },
+  "experiments": [
+    {
+      "label": "run_a_125repeats",
+      "n_repeats": 125,
+      "error": "IsotonicCalibrator.__init__() missing 2 required positional arguments: 'entity_type' and 'run_id'"
+    },
+    {
+      "label": "run_b_250repeats",
+      "n_repeats": 250,
+      "error": "IsotonicCalibrator.__init__() missing 2 required positional arguments: 'entity_type' and 'run_id'"
+    }
+  ]
+}

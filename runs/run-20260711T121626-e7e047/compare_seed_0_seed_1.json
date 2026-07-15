@@ -1,0 +1,46 @@
+{
+  "run_a_label": "run-20260711T121626-e7e047 seed=0",
+  "run_b_label": "run-20260711T121626-e7e047 seed=1",
+  "n_bootstrap": 10000,
+  "ci_level": 0.95,
+  "overall_verdict": "B_BETTER_ON_ALL_METRICS",
+  "note": "Comparing two seeds of the SAME config. CI overlap is the correct, expected result \u2014 it confirms the bootstrap mechanism works, not that there's a bug.",
+  "metrics": [
+    {
+      "metric": "detection_rate",
+      "run_a_mean": 0.6667,
+      "run_b_mean": 0.6667,
+      "run_a_ci_lo": 0.0,
+      "run_a_ci_hi": 1.0,
+      "run_b_ci_lo": 0.0,
+      "run_b_ci_hi": 1.0,
+      "overlap": true,
+      "verdict": "NOT_SIGNIFICANTLY_DIFFERENT",
+      "naive_diff": 0.0
+    },
+    {
+      "metric": "fpr",
+      "run_a_mean": 0.14,
+      "run_b_mean": 0.115,
+      "run_a_ci_lo": 0.14,
+      "run_a_ci_hi": 0.14,
+      "run_b_ci_lo": 0.115,
+      "run_b_ci_hi": 0.115,
+      "overlap": false,
+      "verdict": "B_BETTER",
+      "naive_diff": -0.025
+    },
+    {
+      "metric": "auroc",
+      "run_a_mean": 0.7633,
+      "run_b_mean": 0.7758,
+      "run_a_ci_lo": 0.43,
+      "run_a_ci_hi": 0.93,
+      "run_b_ci_lo": 0.4425,
+      "run_b_ci_hi": 0.9425,
+      "overlap": true,
+      "verdict": "NOT_SIGNIFICANTLY_DIFFERENT",
+      "naive_diff": 0.0125
+    }
+  ]
+}

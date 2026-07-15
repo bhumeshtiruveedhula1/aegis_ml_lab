@@ -1,0 +1,70 @@
+{
+  "run_id": "run-20260711T121626-e7e047",
+  "entity_type": "IT",
+  "generated_at": "2026-07-12T15:59:37 UTC",
+  "overlap_verified": true,
+  "ot_limitation": "OT evaluation not run \u2014 known limitation. Reason: OT baseline window is < 14 days (production data requirement). OT model training was incomplete due to insufficient historical depth. Resolution: accumulate \u226514 days of real OT telemetry, then re-run train \u2192 calibrate \u2192 evaluate for OT entity type.",
+  "scenarios": [
+    {
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 0.9299999999999999,
+      "n_attack": 21,
+      "threshold": 0.375
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 1.0,
+      "n_attack": 4,
+      "threshold": 0.375
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 1.0,
+      "n_attack": 9,
+      "threshold": 0.375
+    }
+  ],
+  "seed_sweep": {
+    "stability_verdict": "UNSTABLE",
+    "dr_range_pp": 100.0,
+    "fpr_range_pp": 2.5,
+    "n_seeds": 5,
+    "notes": [
+      "UNSTABLE: Detection rate range=100.0pp across 5 seeds (threshold: 10.0pp). Model performance depends strongly on IF random seed."
+    ]
+  },
+  "drift": {
+    "overall_verdict": "DETECTED \u2014 Model correctly detected brute_force_auth at all drift fractions tested (['10%', '25%', '50%']). Note: this is a synthetic drift simulation, not a real deployment test.",
+    "native_api_available": false,
+    "simulation_method": "unknown",
+    "fractions_tested": [],
+    "verdicts": []
+  },
+  "shap": {
+    "total_alerts": 157,
+    "top_features": []
+  },
+  "deferred": [
+    {
+      "item": "CRC \u2014 Concept Drift Detection (ADWIN/DDM)",
+      "status": "DEFERRED",
+      "reason": "Requires a live production event stream to detect real temporal drift. The lab operates on a fixed synthetic baseline \u2014 ADWIN cannot be meaningfully applied without sequential real-world data across time windows."
+    },
+    {
+      "item": "ADWIN Statistical Drift Window",
+      "status": "DEFERRED",
+      "reason": "Depends on CRC above. ADWIN requires a sliding-window stream of production decision scores with timestamps. Not available in the lab's static evaluation setup."
+    },
+    {
+      "item": "SHAP-NL \u2014 Natural Language SHAP Explanations",
+      "status": "DEFERRED",
+      "reason": "Requires an LLM integration layer to convert SHAP feature importance vectors into human-readable narrative explanations. Out of scope for the ML lab layer; belongs in the alert rendering / SOC UI layer."
+    }
+  ]
+}

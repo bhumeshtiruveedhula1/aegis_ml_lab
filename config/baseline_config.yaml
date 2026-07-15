@@ -1,0 +1,24 @@
+# AEGIS ML Lab — Baseline Configuration
+# ========================================
+# Minimum warm-up windows required before a model of that entity type
+# may be trained or used for scoring.
+#
+# Rules:
+# - generate-baseline will FAIL if the produced baseline covers fewer days
+#   than min_days for the given entity_type.
+# - Entities that have not met min_days are tagged "unprofiled" and excluded
+#   from training and scoring — never silently zero-featured.
+#
+# Source: AEGIS_ML_Lab_ULTIMATE.md §4 rule 4
+
+IT:
+  min_days: 7
+  description: "IT entities (hospital servers, domain controllers) require 7+ simulated days of normal behavior."
+
+OT:
+  min_days: 7
+  description: >
+    OT entities (ot_node, Modbus devices) ideally require 14+ simulated days.
+    LAB DEVIATION: Digital twin dataset covers ~7 days only. min_days=7 for lab runs.
+    In production with live data, restore to 14.
+  production_min_days: 14

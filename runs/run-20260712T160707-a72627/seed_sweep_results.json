@@ -1,0 +1,479 @@
+{
+  "run_id": "run-20260712T160707-a72627",
+  "entity_type": "IT",
+  "n_seeds": 5,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "scenarios": [
+    "brute_force_auth",
+    "command_execution_powershell",
+    "lateral_movement_smb",
+    "credential_stuffing",
+    "privilege_escalation_token",
+    "persistence_scheduled_task",
+    "network_discovery_scan",
+    "data_exfiltration_http",
+    "full_kill_chain_it"
+  ],
+  "stability_verdict": "STABLE",
+  "dr_range_pp": 0.0,
+  "fpr_range_pp": 4.0,
+  "stability_notes": [],
+  "per_seed_results": [
+    {
+      "seed": 0,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.785,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "credential_stuffing",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 31,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "privilege_escalation_token",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 3,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "persistence_scheduled_task",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 2,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "network_discovery_scan",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 50,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "data_exfiltration_http",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 15,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 0,
+      "scenario": "full_kill_chain_it",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.9875,
+      "n_attack": 26,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.8,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "credential_stuffing",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 31,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "privilege_escalation_token",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 3,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "persistence_scheduled_task",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 2,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "network_discovery_scan",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 50,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "data_exfiltration_http",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 15,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 1,
+      "scenario": "full_kill_chain_it",
+      "detection_rate": 1.0,
+      "fpr": 0.385,
+      "auroc": 0.995,
+      "n_attack": 26,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.78,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "credential_stuffing",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 31,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "privilege_escalation_token",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 3,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "persistence_scheduled_task",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 2,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "network_discovery_scan",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 50,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "data_exfiltration_http",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 15,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 2,
+      "scenario": "full_kill_chain_it",
+      "detection_rate": 1.0,
+      "fpr": 0.4,
+      "auroc": 0.9750000000000001,
+      "n_attack": 26,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.8075,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "credential_stuffing",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 31,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "privilege_escalation_token",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 3,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "persistence_scheduled_task",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 2,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "network_discovery_scan",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 50,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "data_exfiltration_http",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 15,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 3,
+      "scenario": "full_kill_chain_it",
+      "detection_rate": 1.0,
+      "fpr": 0.36,
+      "auroc": 0.9975,
+      "n_attack": 26,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.785,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "credential_stuffing",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 31,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "privilege_escalation_token",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 3,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "persistence_scheduled_task",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 2,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "network_discovery_scan",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 50,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "data_exfiltration_http",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 15,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    },
+    {
+      "seed": 4,
+      "scenario": "full_kill_chain_it",
+      "detection_rate": 1.0,
+      "fpr": 0.39,
+      "auroc": 0.99,
+      "n_attack": 26,
+      "n_normal": 200,
+      "threshold": 0.45985401459854014
+    }
+  ]
+}

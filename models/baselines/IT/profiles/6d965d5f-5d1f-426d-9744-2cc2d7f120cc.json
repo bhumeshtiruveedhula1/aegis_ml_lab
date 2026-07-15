@@ -1,0 +1,1735 @@
+{
+  "profile_id": "6d965d5f-5d1f-426d-9744-2cc2d7f120cc",
+  "baseline_version": "1.0.0",
+  "built_at": "2026-07-14T19:47:27.173641+00:00",
+  "source_file": "C:\\Users\\bhumeshjyothi\\Desktop\\cyber-et\\cybershield\\data\\normalized\\normalized_events.jsonl",
+  "total_events_processed": 1000,
+  "entities": {
+    "user__svc-iis": {
+      "entity_key": {
+        "entity_type": "user",
+        "entity_id": "svc-iis"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 117,
+      "first_seen": "2026-07-01T01:42:51.067440+00:00",
+      "last_seen": "2026-07-07T23:42:51.066448+00:00",
+      "computed_at": "2026-07-14T19:47:27.167516+00:00",
+      "event_type_distribution": {
+        "process_create": 36,
+        "network_connect": 25,
+        "file_create": 37,
+        "user_logon": 19
+      },
+      "action_distribution": {
+        "unknown": 117
+      },
+      "result_distribution": {
+        "unknown": 117
+      },
+      "source_distribution": {
+        "hospital_server": 117
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          3,
+          5,
+          6,
+          8,
+          9,
+          8,
+          6,
+          3,
+          4,
+          5,
+          2,
+          3,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          4,
+          8,
+          4,
+          4,
+          3,
+          4
+        ],
+        "daily_buckets": [
+          21,
+          11,
+          22,
+          12,
+          15,
+          19,
+          17
+        ],
+        "total_events": 117
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 117,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 117
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "host__hospital-server-01": {
+      "entity_key": {
+        "entity_type": "host",
+        "entity_id": "hospital-server-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 500,
+      "first_seen": "2026-07-01T01:42:51.067440+00:00",
+      "last_seen": "2026-07-08T01:42:51.067440+00:00",
+      "computed_at": "2026-07-14T19:47:27.168042+00:00",
+      "event_type_distribution": {
+        "process_create": 138,
+        "user_logon": 119,
+        "file_create": 134,
+        "network_connect": 109
+      },
+      "action_distribution": {
+        "unknown": 500
+      },
+      "result_distribution": {
+        "unknown": 500
+      },
+      "source_distribution": {
+        "hospital_server": 500
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          22,
+          16,
+          24,
+          27,
+          23,
+          22,
+          29,
+          19,
+          24,
+          22,
+          20,
+          19,
+          20,
+          17,
+          21,
+          17,
+          25,
+          16,
+          23,
+          24,
+          15,
+          16,
+          17,
+          22
+        ],
+        "daily_buckets": [
+          78,
+          60,
+          73,
+          67,
+          73,
+          71,
+          78
+        ],
+        "total_events": 500
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 500,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 500
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "source__hospital_server": {
+      "entity_key": {
+        "entity_type": "source",
+        "entity_id": "hospital_server"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 500,
+      "first_seen": "2026-07-01T01:42:51.067440+00:00",
+      "last_seen": "2026-07-08T01:42:51.067440+00:00",
+      "computed_at": "2026-07-14T19:47:27.168565+00:00",
+      "event_type_distribution": {
+        "process_create": 138,
+        "user_logon": 119,
+        "file_create": 134,
+        "network_connect": 109
+      },
+      "action_distribution": {
+        "unknown": 500
+      },
+      "result_distribution": {
+        "unknown": 500
+      },
+      "source_distribution": {
+        "hospital_server": 500
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          22,
+          16,
+          24,
+          27,
+          23,
+          22,
+          29,
+          19,
+          24,
+          22,
+          20,
+          19,
+          20,
+          17,
+          21,
+          17,
+          25,
+          16,
+          23,
+          24,
+          15,
+          16,
+          17,
+          22
+        ],
+        "daily_buckets": [
+          78,
+          60,
+          73,
+          67,
+          73,
+          71,
+          78
+        ],
+        "total_events": 500
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 500,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 500
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user_host__svc-iis::hospital-server-01": {
+      "entity_key": {
+        "entity_type": "user_host",
+        "entity_id": "svc-iis::hospital-server-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 117,
+      "first_seen": "2026-07-01T01:42:51.067440+00:00",
+      "last_seen": "2026-07-07T23:42:51.066448+00:00",
+      "computed_at": "2026-07-14T19:47:27.169100+00:00",
+      "event_type_distribution": {
+        "process_create": 36,
+        "network_connect": 25,
+        "file_create": 37,
+        "user_logon": 19
+      },
+      "action_distribution": {
+        "unknown": 117
+      },
+      "result_distribution": {
+        "unknown": 117
+      },
+      "source_distribution": {
+        "hospital_server": 117
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          3,
+          5,
+          6,
+          8,
+          9,
+          8,
+          6,
+          3,
+          4,
+          5,
+          2,
+          3,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          4,
+          8,
+          4,
+          4,
+          3,
+          4
+        ],
+        "daily_buckets": [
+          21,
+          11,
+          22,
+          12,
+          15,
+          19,
+          17
+        ],
+        "total_events": 117
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 117,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 117
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user__corp__nurse01": {
+      "entity_key": {
+        "entity_type": "user",
+        "entity_id": "corp\\\\nurse01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 116,
+      "first_seen": "2026-07-01T01:42:51.067440+00:00",
+      "last_seen": "2026-07-08T00:42:51.066448+00:00",
+      "computed_at": "2026-07-14T19:47:27.169100+00:00",
+      "event_type_distribution": {
+        "process_create": 29,
+        "user_logon": 32,
+        "file_create": 27,
+        "network_connect": 28
+      },
+      "action_distribution": {
+        "unknown": 116
+      },
+      "result_distribution": {
+        "unknown": 116
+      },
+      "source_distribution": {
+        "hospital_server": 116
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          5,
+          1,
+          6,
+          5,
+          5,
+          5,
+          5,
+          8,
+          11,
+          4,
+          3,
+          7,
+          2,
+          4,
+          7,
+          4,
+          3,
+          4,
+          7,
+          5,
+          3,
+          3,
+          4,
+          5
+        ],
+        "daily_buckets": [
+          17,
+          13,
+          28,
+          12,
+          17,
+          18,
+          11
+        ],
+        "total_events": 116
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 116,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 116
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user_host__corp__nurse01::hospital-server-01": {
+      "entity_key": {
+        "entity_type": "user_host",
+        "entity_id": "corp\\\\nurse01::hospital-server-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 116,
+      "first_seen": "2026-07-01T01:42:51.067440+00:00",
+      "last_seen": "2026-07-08T00:42:51.066448+00:00",
+      "computed_at": "2026-07-14T19:47:27.169100+00:00",
+      "event_type_distribution": {
+        "process_create": 29,
+        "user_logon": 32,
+        "file_create": 27,
+        "network_connect": 28
+      },
+      "action_distribution": {
+        "unknown": 116
+      },
+      "result_distribution": {
+        "unknown": 116
+      },
+      "source_distribution": {
+        "hospital_server": 116
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          5,
+          1,
+          6,
+          5,
+          5,
+          5,
+          5,
+          8,
+          11,
+          4,
+          3,
+          7,
+          2,
+          4,
+          7,
+          4,
+          3,
+          4,
+          7,
+          5,
+          3,
+          3,
+          4,
+          5
+        ],
+        "daily_buckets": [
+          17,
+          13,
+          28,
+          12,
+          17,
+          18,
+          11
+        ],
+        "total_events": 116
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 116,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 116
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user__svc-db": {
+      "entity_key": {
+        "entity_type": "user",
+        "entity_id": "svc-db"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 128,
+      "first_seen": "2026-07-01T02:42:51.066448+00:00",
+      "last_seen": "2026-07-08T01:42:51.067440+00:00",
+      "computed_at": "2026-07-14T19:47:27.169100+00:00",
+      "event_type_distribution": {
+        "process_create": 37,
+        "file_create": 44,
+        "network_connect": 25,
+        "user_logon": 22
+      },
+      "action_distribution": {
+        "unknown": 128
+      },
+      "result_distribution": {
+        "unknown": 128
+      },
+      "source_distribution": {
+        "hospital_server": 128
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          3,
+          5,
+          4,
+          9,
+          6,
+          4,
+          4,
+          2,
+          6,
+          8,
+          11,
+          3,
+          7,
+          3,
+          6,
+          5,
+          9,
+          1,
+          6,
+          5,
+          3,
+          6,
+          5,
+          7
+        ],
+        "daily_buckets": [
+          19,
+          17,
+          13,
+          21,
+          17,
+          17,
+          24
+        ],
+        "total_events": 128
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 128,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 128
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user_host__svc-db::hospital-server-01": {
+      "entity_key": {
+        "entity_type": "user_host",
+        "entity_id": "svc-db::hospital-server-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 128,
+      "first_seen": "2026-07-01T02:42:51.066448+00:00",
+      "last_seen": "2026-07-08T01:42:51.067440+00:00",
+      "computed_at": "2026-07-14T19:47:27.169100+00:00",
+      "event_type_distribution": {
+        "process_create": 37,
+        "file_create": 44,
+        "network_connect": 25,
+        "user_logon": 22
+      },
+      "action_distribution": {
+        "unknown": 128
+      },
+      "result_distribution": {
+        "unknown": 128
+      },
+      "source_distribution": {
+        "hospital_server": 128
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          3,
+          5,
+          4,
+          9,
+          6,
+          4,
+          4,
+          2,
+          6,
+          8,
+          11,
+          3,
+          7,
+          3,
+          6,
+          5,
+          9,
+          1,
+          6,
+          5,
+          3,
+          6,
+          5,
+          7
+        ],
+        "daily_buckets": [
+          19,
+          17,
+          13,
+          21,
+          17,
+          17,
+          24
+        ],
+        "total_events": 128
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 128,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 128
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user__corp__admin": {
+      "entity_key": {
+        "entity_type": "user",
+        "entity_id": "corp\\\\admin"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 139,
+      "first_seen": "2026-07-01T04:42:51.065443+00:00",
+      "last_seen": "2026-07-08T01:42:51.065443+00:00",
+      "computed_at": "2026-07-14T19:47:27.169630+00:00",
+      "event_type_distribution": {
+        "user_logon": 46,
+        "process_create": 36,
+        "file_create": 26,
+        "network_connect": 31
+      },
+      "action_distribution": {
+        "unknown": 139
+      },
+      "result_distribution": {
+        "unknown": 139
+      },
+      "source_distribution": {
+        "hospital_server": 139
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          11,
+          5,
+          8,
+          5,
+          3,
+          5,
+          14,
+          6,
+          3,
+          5,
+          4,
+          6,
+          7,
+          6,
+          3,
+          3,
+          8,
+          6,
+          6,
+          6,
+          5,
+          3,
+          5,
+          6
+        ],
+        "daily_buckets": [
+          21,
+          19,
+          10,
+          22,
+          24,
+          17,
+          26
+        ],
+        "total_events": 139
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 139,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 139
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user_host__corp__admin::hospital-server-01": {
+      "entity_key": {
+        "entity_type": "user_host",
+        "entity_id": "corp\\\\admin::hospital-server-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 139,
+      "first_seen": "2026-07-01T04:42:51.065443+00:00",
+      "last_seen": "2026-07-08T01:42:51.065443+00:00",
+      "computed_at": "2026-07-14T19:47:27.169630+00:00",
+      "event_type_distribution": {
+        "user_logon": 46,
+        "process_create": 36,
+        "file_create": 26,
+        "network_connect": 31
+      },
+      "action_distribution": {
+        "unknown": 139
+      },
+      "result_distribution": {
+        "unknown": 139
+      },
+      "source_distribution": {
+        "hospital_server": 139
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          11,
+          5,
+          8,
+          5,
+          3,
+          5,
+          14,
+          6,
+          3,
+          5,
+          4,
+          6,
+          7,
+          6,
+          3,
+          3,
+          8,
+          6,
+          6,
+          6,
+          5,
+          3,
+          5,
+          6
+        ],
+        "daily_buckets": [
+          21,
+          19,
+          10,
+          22,
+          24,
+          17,
+          26
+        ],
+        "total_events": 139
+      },
+      "network": null,
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 139,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 139
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user__system": {
+      "entity_key": {
+        "entity_type": "user",
+        "entity_id": "system"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 300,
+      "first_seen": "2026-07-01T01:42:51.070448+00:00",
+      "last_seen": "2026-07-08T01:42:51.069361+00:00",
+      "computed_at": "2026-07-14T19:47:27.170938+00:00",
+      "event_type_distribution": {
+        "windows_event": 300
+      },
+      "action_distribution": {
+        "authenticate": 300
+      },
+      "result_distribution": {
+        "unknown": 300
+      },
+      "source_distribution": {
+        "domain_controller": 300
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          17,
+          9,
+          20,
+          12,
+          10,
+          16,
+          10,
+          9,
+          7,
+          14,
+          5,
+          7,
+          14,
+          11,
+          10,
+          15,
+          15,
+          17,
+          13,
+          19,
+          9,
+          10,
+          16,
+          15
+        ],
+        "daily_buckets": [
+          38,
+          48,
+          49,
+          49,
+          38,
+          42,
+          36
+        ],
+        "total_events": 300
+      },
+      "network": {
+        "unique_src_ips": [
+          "172.20.1.32",
+          "172.20.1.11",
+          "172.20.1.36",
+          "172.20.1.16",
+          "172.20.1.46",
+          "172.20.1.43",
+          "172.20.1.10",
+          "172.20.1.49",
+          "172.20.1.31",
+          "172.20.1.27",
+          "172.20.1.14",
+          "172.20.1.48",
+          "172.20.1.37",
+          "172.20.1.29",
+          "172.20.1.13",
+          "172.20.1.28",
+          "172.20.1.47",
+          "172.20.1.25",
+          "172.20.1.23",
+          "172.20.1.45",
+          "172.20.1.40",
+          "172.20.1.17",
+          "172.20.1.33",
+          "172.20.1.50",
+          "172.20.1.30",
+          "172.20.1.18",
+          "172.20.1.22",
+          "172.20.1.38",
+          "172.20.1.20",
+          "172.20.1.41",
+          "172.20.1.44",
+          "172.20.1.42",
+          "172.20.1.15",
+          "172.20.1.12",
+          "172.20.1.26",
+          "172.20.1.21",
+          "172.20.1.19",
+          "172.20.1.39",
+          "172.20.1.35",
+          "172.20.1.34",
+          "172.20.1.24"
+        ],
+        "unique_dst_ips": [],
+        "port_distribution": {},
+        "protocol_distribution": {},
+        "bytes_out_stats": null,
+        "connection_count": 300
+      },
+      "process": null,
+      "modbus": null,
+      "auth": {
+        "logon_type_distribution": {
+          "interactive": 95,
+          "network": 94,
+          "remote_interactive": 111
+        },
+        "auth_package_distribution": {},
+        "failure_count": 0,
+        "success_count": 0,
+        "windows_event_id_distribution": {
+          "4720": 80,
+          "4625": 76,
+          "4624": 74,
+          "4672": 70
+        },
+        "auth_event_count": 300
+      },
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 300,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 300
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "host__dc-01": {
+      "entity_key": {
+        "entity_type": "host",
+        "entity_id": "dc-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 300,
+      "first_seen": "2026-07-01T01:42:51.070448+00:00",
+      "last_seen": "2026-07-08T01:42:51.069361+00:00",
+      "computed_at": "2026-07-14T19:47:27.171474+00:00",
+      "event_type_distribution": {
+        "windows_event": 300
+      },
+      "action_distribution": {
+        "authenticate": 300
+      },
+      "result_distribution": {
+        "unknown": 300
+      },
+      "source_distribution": {
+        "domain_controller": 300
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          17,
+          9,
+          20,
+          12,
+          10,
+          16,
+          10,
+          9,
+          7,
+          14,
+          5,
+          7,
+          14,
+          11,
+          10,
+          15,
+          15,
+          17,
+          13,
+          19,
+          9,
+          10,
+          16,
+          15
+        ],
+        "daily_buckets": [
+          38,
+          48,
+          49,
+          49,
+          38,
+          42,
+          36
+        ],
+        "total_events": 300
+      },
+      "network": {
+        "unique_src_ips": [
+          "172.20.1.32",
+          "172.20.1.11",
+          "172.20.1.36",
+          "172.20.1.16",
+          "172.20.1.46",
+          "172.20.1.43",
+          "172.20.1.10",
+          "172.20.1.49",
+          "172.20.1.31",
+          "172.20.1.27",
+          "172.20.1.14",
+          "172.20.1.48",
+          "172.20.1.37",
+          "172.20.1.29",
+          "172.20.1.13",
+          "172.20.1.28",
+          "172.20.1.47",
+          "172.20.1.25",
+          "172.20.1.23",
+          "172.20.1.45",
+          "172.20.1.40",
+          "172.20.1.17",
+          "172.20.1.33",
+          "172.20.1.50",
+          "172.20.1.30",
+          "172.20.1.18",
+          "172.20.1.22",
+          "172.20.1.38",
+          "172.20.1.20",
+          "172.20.1.41",
+          "172.20.1.44",
+          "172.20.1.42",
+          "172.20.1.15",
+          "172.20.1.12",
+          "172.20.1.26",
+          "172.20.1.21",
+          "172.20.1.19",
+          "172.20.1.39",
+          "172.20.1.35",
+          "172.20.1.34",
+          "172.20.1.24"
+        ],
+        "unique_dst_ips": [],
+        "port_distribution": {},
+        "protocol_distribution": {},
+        "bytes_out_stats": null,
+        "connection_count": 300
+      },
+      "process": null,
+      "modbus": null,
+      "auth": {
+        "logon_type_distribution": {
+          "interactive": 95,
+          "network": 94,
+          "remote_interactive": 111
+        },
+        "auth_package_distribution": {},
+        "failure_count": 0,
+        "success_count": 0,
+        "windows_event_id_distribution": {
+          "4720": 80,
+          "4625": 76,
+          "4624": 74,
+          "4672": 70
+        },
+        "auth_event_count": 300
+      },
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 300,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 300
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "source__domain_controller": {
+      "entity_key": {
+        "entity_type": "source",
+        "entity_id": "domain_controller"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 300,
+      "first_seen": "2026-07-01T01:42:51.070448+00:00",
+      "last_seen": "2026-07-08T01:42:51.069361+00:00",
+      "computed_at": "2026-07-14T19:47:27.172011+00:00",
+      "event_type_distribution": {
+        "windows_event": 300
+      },
+      "action_distribution": {
+        "authenticate": 300
+      },
+      "result_distribution": {
+        "unknown": 300
+      },
+      "source_distribution": {
+        "domain_controller": 300
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          17,
+          9,
+          20,
+          12,
+          10,
+          16,
+          10,
+          9,
+          7,
+          14,
+          5,
+          7,
+          14,
+          11,
+          10,
+          15,
+          15,
+          17,
+          13,
+          19,
+          9,
+          10,
+          16,
+          15
+        ],
+        "daily_buckets": [
+          38,
+          48,
+          49,
+          49,
+          38,
+          42,
+          36
+        ],
+        "total_events": 300
+      },
+      "network": {
+        "unique_src_ips": [
+          "172.20.1.32",
+          "172.20.1.11",
+          "172.20.1.36",
+          "172.20.1.16",
+          "172.20.1.46",
+          "172.20.1.43",
+          "172.20.1.10",
+          "172.20.1.49",
+          "172.20.1.31",
+          "172.20.1.27",
+          "172.20.1.14",
+          "172.20.1.48",
+          "172.20.1.37",
+          "172.20.1.29",
+          "172.20.1.13",
+          "172.20.1.28",
+          "172.20.1.47",
+          "172.20.1.25",
+          "172.20.1.23",
+          "172.20.1.45",
+          "172.20.1.40",
+          "172.20.1.17",
+          "172.20.1.33",
+          "172.20.1.50",
+          "172.20.1.30",
+          "172.20.1.18",
+          "172.20.1.22",
+          "172.20.1.38",
+          "172.20.1.20",
+          "172.20.1.41",
+          "172.20.1.44",
+          "172.20.1.42",
+          "172.20.1.15",
+          "172.20.1.12",
+          "172.20.1.26",
+          "172.20.1.21",
+          "172.20.1.19",
+          "172.20.1.39",
+          "172.20.1.35",
+          "172.20.1.34",
+          "172.20.1.24"
+        ],
+        "unique_dst_ips": [],
+        "port_distribution": {},
+        "protocol_distribution": {},
+        "bytes_out_stats": null,
+        "connection_count": 300
+      },
+      "process": null,
+      "modbus": null,
+      "auth": {
+        "logon_type_distribution": {
+          "interactive": 95,
+          "network": 94,
+          "remote_interactive": 111
+        },
+        "auth_package_distribution": {},
+        "failure_count": 0,
+        "success_count": 0,
+        "windows_event_id_distribution": {
+          "4720": 80,
+          "4625": 76,
+          "4624": 74,
+          "4672": 70
+        },
+        "auth_event_count": 300
+      },
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 300,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 300
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user_host__system::dc-01": {
+      "entity_key": {
+        "entity_type": "user_host",
+        "entity_id": "system::dc-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 300,
+      "first_seen": "2026-07-01T01:42:51.070448+00:00",
+      "last_seen": "2026-07-08T01:42:51.069361+00:00",
+      "computed_at": "2026-07-14T19:47:27.172544+00:00",
+      "event_type_distribution": {
+        "windows_event": 300
+      },
+      "action_distribution": {
+        "authenticate": 300
+      },
+      "result_distribution": {
+        "unknown": 300
+      },
+      "source_distribution": {
+        "domain_controller": 300
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          17,
+          9,
+          20,
+          12,
+          10,
+          16,
+          10,
+          9,
+          7,
+          14,
+          5,
+          7,
+          14,
+          11,
+          10,
+          15,
+          15,
+          17,
+          13,
+          19,
+          9,
+          10,
+          16,
+          15
+        ],
+        "daily_buckets": [
+          38,
+          48,
+          49,
+          49,
+          38,
+          42,
+          36
+        ],
+        "total_events": 300
+      },
+      "network": {
+        "unique_src_ips": [
+          "172.20.1.32",
+          "172.20.1.11",
+          "172.20.1.36",
+          "172.20.1.16",
+          "172.20.1.46",
+          "172.20.1.43",
+          "172.20.1.10",
+          "172.20.1.49",
+          "172.20.1.31",
+          "172.20.1.27",
+          "172.20.1.14",
+          "172.20.1.48",
+          "172.20.1.37",
+          "172.20.1.29",
+          "172.20.1.13",
+          "172.20.1.28",
+          "172.20.1.47",
+          "172.20.1.25",
+          "172.20.1.23",
+          "172.20.1.45",
+          "172.20.1.40",
+          "172.20.1.17",
+          "172.20.1.33",
+          "172.20.1.50",
+          "172.20.1.30",
+          "172.20.1.18",
+          "172.20.1.22",
+          "172.20.1.38",
+          "172.20.1.20",
+          "172.20.1.41",
+          "172.20.1.44",
+          "172.20.1.42",
+          "172.20.1.15",
+          "172.20.1.12",
+          "172.20.1.26",
+          "172.20.1.21",
+          "172.20.1.19",
+          "172.20.1.39",
+          "172.20.1.35",
+          "172.20.1.34",
+          "172.20.1.24"
+        ],
+        "unique_dst_ips": [],
+        "port_distribution": {},
+        "protocol_distribution": {},
+        "bytes_out_stats": null,
+        "connection_count": 300
+      },
+      "process": null,
+      "modbus": null,
+      "auth": {
+        "logon_type_distribution": {
+          "interactive": 95,
+          "network": 94,
+          "remote_interactive": 111
+        },
+        "auth_package_distribution": {},
+        "failure_count": 0,
+        "success_count": 0,
+        "windows_event_id_distribution": {
+          "4720": 80,
+          "4625": 76,
+          "4624": 74,
+          "4672": 70
+        },
+        "auth_event_count": 300
+      },
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 300,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 300
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user__scada": {
+      "entity_key": {
+        "entity_type": "user",
+        "entity_id": "scada"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 200,
+      "first_seen": "2026-07-01T02:42:51.071469+00:00",
+      "last_seen": "2026-07-08T00:42:51.071469+00:00",
+      "computed_at": "2026-07-14T19:47:27.173090+00:00",
+      "event_type_distribution": {
+        "modbus_read": 200
+      },
+      "action_distribution": {
+        "unknown": 200
+      },
+      "result_distribution": {
+        "unknown": 200
+      },
+      "source_distribution": {
+        "ot_node": 200
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          5,
+          9,
+          6,
+          10,
+          7,
+          11,
+          12,
+          14,
+          12,
+          7,
+          8,
+          9,
+          6,
+          3,
+          3,
+          12,
+          8,
+          12,
+          6,
+          6,
+          12,
+          6,
+          8,
+          8
+        ],
+        "daily_buckets": [
+          22,
+          32,
+          37,
+          24,
+          26,
+          34,
+          25
+        ],
+        "total_events": 200
+      },
+      "network": {
+        "unique_src_ips": [],
+        "unique_dst_ips": [],
+        "port_distribution": {
+          "502": 200
+        },
+        "protocol_distribution": {
+          "modbus": 200
+        },
+        "bytes_out_stats": null,
+        "connection_count": 200
+      },
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 200,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 200
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "host__plc-01": {
+      "entity_key": {
+        "entity_type": "host",
+        "entity_id": "plc-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 200,
+      "first_seen": "2026-07-01T02:42:51.071469+00:00",
+      "last_seen": "2026-07-08T00:42:51.071469+00:00",
+      "computed_at": "2026-07-14T19:47:27.173090+00:00",
+      "event_type_distribution": {
+        "modbus_read": 200
+      },
+      "action_distribution": {
+        "unknown": 200
+      },
+      "result_distribution": {
+        "unknown": 200
+      },
+      "source_distribution": {
+        "ot_node": 200
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          5,
+          9,
+          6,
+          10,
+          7,
+          11,
+          12,
+          14,
+          12,
+          7,
+          8,
+          9,
+          6,
+          3,
+          3,
+          12,
+          8,
+          12,
+          6,
+          6,
+          12,
+          6,
+          8,
+          8
+        ],
+        "daily_buckets": [
+          22,
+          32,
+          37,
+          24,
+          26,
+          34,
+          25
+        ],
+        "total_events": 200
+      },
+      "network": {
+        "unique_src_ips": [],
+        "unique_dst_ips": [],
+        "port_distribution": {
+          "502": 200
+        },
+        "protocol_distribution": {
+          "modbus": 200
+        },
+        "bytes_out_stats": null,
+        "connection_count": 200
+      },
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 200,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 200
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "source__ot_node": {
+      "entity_key": {
+        "entity_type": "source",
+        "entity_id": "ot_node"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 200,
+      "first_seen": "2026-07-01T02:42:51.071469+00:00",
+      "last_seen": "2026-07-08T00:42:51.071469+00:00",
+      "computed_at": "2026-07-14T19:47:27.173641+00:00",
+      "event_type_distribution": {
+        "modbus_read": 200
+      },
+      "action_distribution": {
+        "unknown": 200
+      },
+      "result_distribution": {
+        "unknown": 200
+      },
+      "source_distribution": {
+        "ot_node": 200
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          5,
+          9,
+          6,
+          10,
+          7,
+          11,
+          12,
+          14,
+          12,
+          7,
+          8,
+          9,
+          6,
+          3,
+          3,
+          12,
+          8,
+          12,
+          6,
+          6,
+          12,
+          6,
+          8,
+          8
+        ],
+        "daily_buckets": [
+          22,
+          32,
+          37,
+          24,
+          26,
+          34,
+          25
+        ],
+        "total_events": 200
+      },
+      "network": {
+        "unique_src_ips": [],
+        "unique_dst_ips": [],
+        "port_distribution": {
+          "502": 200
+        },
+        "protocol_distribution": {
+          "modbus": 200
+        },
+        "bytes_out_stats": null,
+        "connection_count": 200
+      },
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 200,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 200
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    },
+    "user_host__scada::plc-01": {
+      "entity_key": {
+        "entity_type": "user_host",
+        "entity_id": "scada::plc-01"
+      },
+      "baseline_version": "1.0.0",
+      "observation_count": 200,
+      "first_seen": "2026-07-01T02:42:51.071469+00:00",
+      "last_seen": "2026-07-08T00:42:51.071469+00:00",
+      "computed_at": "2026-07-14T19:47:27.173641+00:00",
+      "event_type_distribution": {
+        "modbus_read": 200
+      },
+      "action_distribution": {
+        "unknown": 200
+      },
+      "result_distribution": {
+        "unknown": 200
+      },
+      "source_distribution": {
+        "ot_node": 200
+      },
+      "time_pattern": {
+        "hourly_buckets": [
+          5,
+          9,
+          6,
+          10,
+          7,
+          11,
+          12,
+          14,
+          12,
+          7,
+          8,
+          9,
+          6,
+          3,
+          3,
+          12,
+          8,
+          12,
+          6,
+          6,
+          12,
+          6,
+          8,
+          8
+        ],
+        "daily_buckets": [
+          22,
+          32,
+          37,
+          24,
+          26,
+          34,
+          25
+        ],
+        "total_events": 200
+      },
+      "network": {
+        "unique_src_ips": [],
+        "unique_dst_ips": [],
+        "port_distribution": {
+          "502": 200
+        },
+        "protocol_distribution": {
+          "modbus": 200
+        },
+        "bytes_out_stats": null,
+        "connection_count": 200
+      },
+      "process": null,
+      "modbus": null,
+      "auth": null,
+      "resource_stats": {
+        "field_name": "resource",
+        "count": 200,
+        "total_unique_values": 1,
+        "value_frequencies": {
+          "unknown": 200
+        },
+        "seen_values": [
+          "unknown"
+        ],
+        "max_values": 100
+      }
+    }
+  },
+  "entity_type_counts": {
+    "user": 6,
+    "host": 3,
+    "source": 3,
+    "user_host": 6
+  }
+}

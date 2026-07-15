@@ -1,0 +1,22 @@
+{
+  "last_updated": "2026-07-14T19:47:27.185863+00:00",
+  "latest_profile_id": "6d965d5f-5d1f-426d-9744-2cc2d7f120cc",
+  "profiles": [
+    {
+      "profile_id": "6d965d5f-5d1f-426d-9744-2cc2d7f120cc",
+      "built_at": "2026-07-14T19:47:27.173641+00:00",
+      "total_events": 1000,
+      "entity_count": 18,
+      "baseline_version": "1.0.0",
+      "source_file": "C:\\Users\\bhumeshjyothi\\Desktop\\cyber-et\\cybershield\\data\\normalized\\normalized_events.jsonl"
+    },
+    {
+      "profile_id": "d6b71c13-79cb-4e6d-b046-ae9841c8109a",
+      "built_at": "2026-07-11T12:16:25.095219+00:00",
+      "total_events": 1000,
+      "entity_count": 18,
+      "baseline_version": "1.0.0",
+      "source_file": "C:\\Users\\bhumeshjyothi\\Desktop\\cyber-et\\cybershield\\data\\normalized\\normalized_events.jsonl"
+    }
+  ]
+}

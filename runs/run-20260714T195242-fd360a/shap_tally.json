@@ -1,0 +1,11 @@
+{
+  "run_id": "run-20260714T195242-fd360a",
+  "entity_type": "IT",
+  "total_alerts": 161,
+  "feature_counts": {
+    "day_baseline_frequency": 161,
+    "event_type_frequency_rank": 21,
+    "hour_relative_frequency": 161,
+    "hour_baseline_frequency": 140
+  }
+}

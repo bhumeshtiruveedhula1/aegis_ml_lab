@@ -1,0 +1,535 @@
+# AEGIS ML Lab — Feature Registry
+# =================================
+# THE SINGLE SOURCE OF TRUTH for features consumed by the lab.
+# IMPORTANT: feature status currently governs the SHAP-audit path ONLY (features/build_feature_vector.py).
+# It does NOT affect the train/calibrate/evaluate pipeline, which uses FeaturePipeline from
+# cybershield/backend/features/pipeline.py and ALL_FEATURE_NAMES from backend/features/models.py directly.
+# Wiring status into training requires a consistent feature-mask at train+calibrate+evaluate stages —
+# a real subsystem, not a single edit. Logged as known architectural gap (see TASK_HANDOVER/KNOWN_ISSUES).
+# To flip a feature for SHAP-audit filtering: edit status field below.
+#
+# ─── PRODUCTION MAPPING (confirmed by AST-reading real extractor code) ────────
+#
+# The production pipeline at cybershield/backend/features/extractors/ has 8
+# extractor groups producing 56 named features total:
+#
+#   auth.py          (7)  : logon_type_is_novel, auth_package_is_novel,
+#                           logon_type_baseline_frequency, auth_package_baseline_frequency,
+#                           auth_failure_rate_baseline, auth_event_count_baseline,
+#                           windows_event_id_is_novel
+#   baseline.py      (4)  : has_user_baseline, has_host_baseline,
+#                           has_source_baseline, has_user_host_baseline
+#   entity_activity  (4)  : entity_unique_dst_ips, entity_unique_processes,
+#                           entity_auth_failure_count, entity_modbus_event_count
+#   frequency.py     (8)  : event_type_frequency, event_type_frequency_rank,
+#                           action_frequency, result_failure_rate_baseline,
+#                           result_is_failure, source_frequency,
+#                           entity_observation_count, baseline_window_days
+#   network.py       (10) : dst_ip_is_novel, src_ip_is_novel, port_is_novel,
+#                           protocol_is_novel, port_baseline_frequency,
+#                           protocol_baseline_frequency, bytes_out_z_score,
+#                           bytes_out_percentile_rank, unique_dst_ips_baseline,
+#                           connection_count_baseline
+#   ot.py            (7)  : modbus_register_z_score, modbus_value_z_score,
+#                           modbus_register_is_in_range, modbus_value_is_in_range,
+#                           modbus_function_code_is_novel, supervisory_host_is_novel,
+#                           modbus_event_count_baseline
+#   process.py       (8)  : process_is_novel, parent_process_is_novel,
+#                           parent_child_pair_is_novel, process_frequency_rank,
+#                           unique_processes_baseline, process_event_count_baseline,
+#                           pid_z_score, has_command_line
+#   temporal.py      (8)  : hour_of_day, day_of_week, is_business_hours,
+#                           hour_baseline_frequency, hour_relative_frequency,
+#                           day_baseline_frequency, is_peak_hour,
+#                           time_since_last_seen_hours
+#
+# ─── SPEC CANDIDATES (from AEGIS_ML_Lab_ULTIMATE.md §4 rule 5) ───────────────
+#
+# The spec lists 13 feature "candidates" to evaluate. After mapping against the
+# 56 production features, the result is:
+#
+#   ALREADY EXISTS in production → status: active (maps to prod extractor)
+#   GENUINELY MISSING → status: candidate (new extractor needed in Phase 2)
+#
+# Mapping result:
+#  Spec feature                       Production equivalent
+#  ─────────────────────────────────  ───────────────────────────────────────
+#  connection rate                    entity_observation_count (proxy) → active
+#  unique dest ports                  unique_dst_ips_baseline (ports proxy) → candidate (different concept)
+#  bytes in/out ratio                 bytes_out_z_score + bytes_out_percentile_rank → active (covered)
+#  off-baseline-hours flag            is_business_hours + hour_baseline_frequency → active (covered)
+#  new dest IP not in baseline        dst_ip_is_novel → active (exact match)
+#  failed login rate                  result_failure_rate_baseline + auth_failure_rate_baseline → active
+#  privilege escalation events        (no equivalent) → candidate
+#  login from new source/device       src_ip_is_novel → active (exact match)
+#  function code frequency deviation  modbus_function_code_is_novel → active (partial; z-score variant is candidate)
+#  register/coil write rate           modbus_register_z_score + modbus_value_z_score → active (covered)
+#  polling interval deviation         (no equivalent in prod) → candidate
+#  process spawn rate anomaly         process_is_novel + parent_child_pair_is_novel → active (covered)
+#  new/unsigned binary execution      process_is_novel → active (proxy; unsigned detection is candidate)
+#
+# ─── ACTIVE FEATURE COUNT (correct, no double-count) ─────────────────────────
+# All 56 production features are grouped into 3 super-categories below.
+# entity_type = both  means it applies to IT AND OT (not counted twice in status).
+# entity_type = IT    means IT only.
+# entity_type = OT    means OT only.
+#
+# status key:
+#   active    → exists in production pipeline, used in current training
+#   candidate → spec requires it but not yet implemented in production
+#   deprecated → was active, now removed (none yet)
+
+features:
+
+  # ── Auth / Authentication group (maps to auth.py) ──────────────────────────
+
+  - id: logon_type_is_novel
+    description: "1.0 if this logon type (interactive/network/service/batch) was never seen in baseline. High-value lateral movement signal."
+    entity_type: IT
+    extractor_fn: prod.auth.logon_type_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  - id: auth_package_is_novel
+    description: "1.0 if authentication package (NTLM/Kerberos/negotiate) not seen in baseline."
+    entity_type: IT
+    extractor_fn: prod.auth.auth_package_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  - id: logon_type_baseline_frequency
+    description: "How often this logon type appeared in the entity baseline window."
+    entity_type: IT
+    extractor_fn: prod.auth.logon_type_baseline_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  - id: auth_package_baseline_frequency
+    description: "How often this auth package appeared in the entity baseline."
+    entity_type: IT
+    extractor_fn: prod.auth.auth_package_baseline_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  - id: auth_failure_rate_baseline
+    description: "Baseline proportion of failed auth events for this entity."
+    entity_type: IT
+    extractor_fn: prod.auth.auth_failure_rate_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  - id: auth_event_count_baseline
+    description: "Total auth events tracked in the entity baseline window."
+    entity_type: IT
+    extractor_fn: prod.auth.auth_event_count_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  - id: windows_event_id_is_novel
+    description: "1.0 if this Windows Event ID was not in the baseline distribution."
+    entity_type: IT
+    extractor_fn: prod.auth.windows_event_id_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.auth.AuthExtractor"
+
+  # ── Baseline presence group (maps to baseline.py) ──────────────────────────
+
+  - id: has_user_baseline
+    description: "1.0 if a user-dimension baseline exists for this entity."
+    entity_type: both
+    extractor_fn: prod.baseline.has_user_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.baseline.BaselinePresenceExtractor"
+
+  - id: has_host_baseline
+    description: "1.0 if a host-dimension baseline exists for this entity."
+    entity_type: both
+    extractor_fn: prod.baseline.has_host_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.baseline.BaselinePresenceExtractor"
+
+  - id: has_source_baseline
+    description: "1.0 if a source-dimension baseline exists for this entity."
+    entity_type: both
+    extractor_fn: prod.baseline.has_source_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.baseline.BaselinePresenceExtractor"
+
+  - id: has_user_host_baseline
+    description: "1.0 if a user_host compound-dimension baseline exists."
+    entity_type: both
+    extractor_fn: prod.baseline.has_user_host_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.baseline.BaselinePresenceExtractor"
+
+  # ── Entity activity group (maps to entity_activity.py) ─────────────────────
+
+  - id: entity_unique_dst_ips
+    description: "Count of unique destination IPs this entity has communicated with in the baseline window."
+    entity_type: both
+    extractor_fn: prod.entity_activity.entity_unique_dst_ips
+    status: active
+    prod_extractor: "backend.features.extractors.entity_activity.EntityActivityExtractor"
+
+  - id: entity_unique_processes
+    description: "Count of unique processes run by this entity in the baseline window."
+    entity_type: IT
+    extractor_fn: prod.entity_activity.entity_unique_processes
+    status: active
+    prod_extractor: "backend.features.extractors.entity_activity.EntityActivityExtractor"
+
+  - id: entity_auth_failure_count
+    description: "Cumulative auth failures for this entity recorded in baseline."
+    entity_type: IT
+    extractor_fn: prod.entity_activity.entity_auth_failure_count
+    status: active
+    prod_extractor: "backend.features.extractors.entity_activity.EntityActivityExtractor"
+
+  - id: entity_modbus_event_count
+    description: "Total Modbus events for this entity in baseline. OT baseline depth indicator."
+    entity_type: OT
+    extractor_fn: prod.entity_activity.entity_modbus_event_count
+    status: active
+    prod_extractor: "backend.features.extractors.entity_activity.EntityActivityExtractor"
+
+  # ── Frequency group (maps to frequency.py) ─────────────────────────────────
+
+  - id: event_type_frequency
+    description: "How often this event type appeared for this entity in the baseline window."
+    entity_type: both
+    extractor_fn: prod.frequency.event_type_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: event_type_frequency_rank
+    description: "Rank of this event type by frequency (100.0 = unseen on cold-start; 0.0 = most common)."
+    entity_type: both
+    extractor_fn: prod.frequency.event_type_frequency_rank
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: action_frequency
+    description: "How often this specific action appeared for this entity in baseline."
+    entity_type: both
+    extractor_fn: prod.frequency.action_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: result_failure_rate_baseline
+    description: "Baseline proportion of failure-result events for this entity."
+    entity_type: both
+    extractor_fn: prod.frequency.result_failure_rate_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: result_is_failure
+    description: "Binary: 1.0 if this event has result=failure."
+    entity_type: both
+    extractor_fn: prod.frequency.result_is_failure
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: auth_unexpected_failure
+    description: >
+      result_is_failure × (1 - result_failure_rate_baseline).
+      High (→1.0) when current event is a failure AND the entity's baseline shows
+      near-zero failure rate. Captures brute-force / credential-stuffing where
+      individual auth failures are rare in baseline but this event is a failure.
+      Composite of two existing features — no new baseline state required.
+    entity_type: IT
+    extractor_fn: prod.frequency.auth_unexpected_failure
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+    promotion_gate: "PASSED: feature verified 1.0 on attack, 0.0 on normal — 2026-07-11"
+    added: "2026-07-11 — Phase 2 feature fix for brute_force_auth discrimination failure"
+
+  - id: source_frequency
+    description: "How often this log source appeared for this entity in baseline."
+    entity_type: both
+    extractor_fn: prod.frequency.source_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: entity_observation_count
+    description: "Total events observed for this entity in baseline window. Baseline depth signal."
+    entity_type: both
+    extractor_fn: prod.frequency.entity_observation_count
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  - id: baseline_window_days
+    description: "Days of history in the entity baseline. Cold-start quality indicator."
+    entity_type: both
+    extractor_fn: prod.frequency.baseline_window_days
+    status: active
+    prod_extractor: "backend.features.extractors.frequency.FrequencyExtractor"
+
+  # ── Network group (maps to network.py) ─────────────────────────────────────
+
+  - id: dst_ip_is_novel
+    description: "1.0 if destination IP was never seen in entity baseline. Maps to spec: new_dest_ip_not_in_baseline."
+    entity_type: both
+    extractor_fn: prod.network.dst_ip_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: src_ip_is_novel
+    description: "1.0 if source IP was never seen in entity baseline. Maps to spec: login_from_new_source."
+    entity_type: both
+    extractor_fn: prod.network.src_ip_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: port_is_novel
+    description: "1.0 if this destination port was not in the entity baseline port distribution."
+    entity_type: both
+    extractor_fn: prod.network.port_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: protocol_is_novel
+    description: "1.0 if this network protocol was not seen in the entity baseline."
+    entity_type: both
+    extractor_fn: prod.network.protocol_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: port_baseline_frequency
+    description: "How often this destination port appeared in the entity baseline."
+    entity_type: both
+    extractor_fn: prod.network.port_baseline_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: protocol_baseline_frequency
+    description: "How often this protocol appeared in the entity baseline."
+    entity_type: both
+    extractor_fn: prod.network.protocol_baseline_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: bytes_out_z_score
+    description: "Z-score of bytes_out vs baseline distribution. Maps to spec: bytes_in_out_ratio (proxy)."
+    entity_type: IT
+    extractor_fn: prod.network.bytes_out_z_score
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: bytes_out_percentile_rank
+    description: "Percentile rank of bytes_out vs baseline. Complementary to z-score for exfiltration detection."
+    entity_type: IT
+    extractor_fn: prod.network.bytes_out_percentile_rank
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: unique_dst_ips_baseline
+    description: "Count of unique destination IPs in the entity baseline."
+    entity_type: both
+    extractor_fn: prod.network.unique_dst_ips_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  - id: connection_count_baseline
+    description: "Total network connections in the entity baseline. Maps to spec: connection_rate (proxy)."
+    entity_type: both
+    extractor_fn: prod.network.connection_count_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.network.NetworkExtractor"
+
+  # ── OT group (maps to ot.py) ───────────────────────────────────────────────
+
+  - id: modbus_register_z_score
+    description: "Z-score of Modbus register address vs baseline distribution. Maps to spec: register_coil_write_rate (proxy)."
+    entity_type: OT
+    extractor_fn: prod.ot.modbus_register_z_score
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  - id: modbus_value_z_score
+    description: "Z-score of Modbus register value vs baseline. Detects setpoint overrides."
+    entity_type: OT
+    extractor_fn: prod.ot.modbus_value_z_score
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  - id: modbus_register_is_in_range
+    description: "1.0 if register address is within baseline [min, max] range."
+    entity_type: OT
+    extractor_fn: prod.ot.modbus_register_is_in_range
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  - id: modbus_value_is_in_range
+    description: "1.0 if register value is within baseline [min, max] range."
+    entity_type: OT
+    extractor_fn: prod.ot.modbus_value_is_in_range
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  - id: modbus_function_code_is_novel
+    description: "1.0 if Modbus function code not in baseline. Maps to spec: function_code_frequency_deviation."
+    entity_type: OT
+    extractor_fn: prod.ot.modbus_function_code_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  - id: supervisory_host_is_novel
+    description: "1.0 if supervisory SCADA host not in baseline. High-value OT intrusion signal."
+    entity_type: OT
+    extractor_fn: prod.ot.supervisory_host_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  - id: modbus_event_count_baseline
+    description: "Total Modbus events in entity baseline window."
+    entity_type: OT
+    extractor_fn: prod.ot.modbus_event_count_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.ot.OTExtractor"
+
+  # ── Process group (maps to process.py) ─────────────────────────────────────
+
+  - id: process_is_novel
+    description: "1.0 if this process was not seen in entity baseline. Maps to spec: new_unsigned_binary_execution."
+    entity_type: IT
+    extractor_fn: prod.process.process_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: parent_process_is_novel
+    description: "1.0 if parent process was not seen in baseline."
+    entity_type: IT
+    extractor_fn: prod.process.parent_process_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: parent_child_pair_is_novel
+    description: "1.0 if the parent::child process pair was not in baseline. Strong lateral movement / injection signal. Maps to spec: process_spawn_rate_anomaly."
+    entity_type: IT
+    extractor_fn: prod.process.parent_child_pair_is_novel
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: process_frequency_rank
+    description: "Rank of this process by frequency in baseline (0.0 = most common)."
+    entity_type: IT
+    extractor_fn: prod.process.process_frequency_rank
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: unique_processes_baseline
+    description: "Count of unique processes in baseline. Process diversity indicator."
+    entity_type: IT
+    extractor_fn: prod.process.unique_processes_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: process_event_count_baseline
+    description: "Total process events in entity baseline."
+    entity_type: IT
+    extractor_fn: prod.process.process_event_count_baseline
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: pid_z_score
+    description: "Z-score of PID vs baseline PID distribution. Detects process injection (unusual PID ranges)."
+    entity_type: IT
+    extractor_fn: prod.process.pid_z_score
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  - id: has_command_line
+    description: "1.0 if command_line field is populated. Absence is itself a signal (obfuscated processes)."
+    entity_type: IT
+    extractor_fn: prod.process.has_command_line
+    status: active
+    prod_extractor: "backend.features.extractors.process.ProcessExtractor"
+
+  # ── Temporal group (maps to temporal.py) ───────────────────────────────────
+
+  - id: hour_of_day
+    description: "Current event hour (0-23). Normalised to [0.0, 1.0] for the IF."
+    entity_type: both
+    extractor_fn: prod.temporal.hour_of_day
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: day_of_week
+    description: "Day of week (0=Monday..6=Sunday). Normalised to [0.0, 1.0]."
+    entity_type: both
+    extractor_fn: prod.temporal.day_of_week
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: is_business_hours
+    description: "Binary: 1.0 if event is within Mon-Fri 09:00-17:00. Maps to spec: off_baseline_hours_flag (inverse)."
+    entity_type: both
+    extractor_fn: prod.temporal.is_business_hours
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: hour_baseline_frequency
+    description: "How often this hour of day appeared in entity baseline. Low freq = unusual time."
+    entity_type: both
+    extractor_fn: prod.temporal.hour_baseline_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: hour_relative_frequency
+    description: "Relative frequency of this hour vs all hours in baseline."
+    entity_type: both
+    extractor_fn: prod.temporal.hour_relative_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: day_baseline_frequency
+    description: "How often this day of week appeared in entity baseline."
+    entity_type: both
+    extractor_fn: prod.temporal.day_baseline_frequency
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: is_peak_hour
+    description: "Binary: 1.0 if this is the entity's historically highest-frequency hour."
+    entity_type: both
+    extractor_fn: prod.temporal.is_peak_hour
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+  - id: time_since_last_seen_hours
+    description: "Hours since this entity was last seen. Very high values indicate dormant/reactivated entity."
+    entity_type: both
+    extractor_fn: prod.temporal.time_since_last_seen_hours
+    status: active
+    prod_extractor: "backend.features.extractors.temporal.TemporalExtractor"
+
+
+  - id: unique_dest_ports_count
+    description: "CANDIDATE: Count of distinct dest ports contacted in this observation window (sliding). Different concept from unique_dst_ips_baseline which counts IPs, not ports. Requires window accumulation logic."
+    entity_type: both
+    extractor_fn: lab.candidates.unique_dest_ports_count
+    status: candidate
+
+  - id: privilege_escalation_flag
+    description: "CANDIDATE: Binary 1.0 if this event is a privilege escalation action (token impersonation, sudo, runas). No production equivalent. Requires event_type/action taxonomy review."
+    entity_type: both
+    extractor_fn: lab.candidates.privilege_escalation_flag
+    status: candidate
+
+  - id: polling_interval_deviation
+    description: "CANDIDATE: Z-score of inter-event arrival time vs baseline interval distribution. No production equivalent. Requires per-entity inter-arrival time tracking."
+    entity_type: OT
+    extractor_fn: lab.candidates.polling_interval_deviation
+    status: candidate
+
+  - id: auth_failure_burst_score
+    description: >
+      Auth failure burst score = result_is_failure * min(1.0, time_since_last_seen_hours/24).
+      Captures brute_force_auth: cold-start attacker entity (high dormancy) with auth failures produces
+      score ~0.95. Normal entities (low dormancy, no failures) produce 0.0. Implemented in
+      features/extractors.py::auth_failure_burst_score. Added in Phase fix to resolve brute_force_auth
+      seed-instability: the IF was placing attack records too close to the normal cluster boundary.
+      VERIFIED: attack mean=0.9524, normal mean=0.0000, separation=0.9524.
+    entity_type: IT
+    extractor_fn: lab.auth_burst.auth_failure_burst_score
+    status: active

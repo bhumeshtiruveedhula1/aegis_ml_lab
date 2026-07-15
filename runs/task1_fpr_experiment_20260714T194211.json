@@ -1,0 +1,51 @@
+{
+  "baseline": {
+    "run_id": "run-20260712T160707-a72627",
+    "n_repeats": 40,
+    "fpr_per_seed": [
+      0.385,
+      0.385,
+      0.4,
+      0.36,
+      0.39
+    ],
+    "fpr_mean": 0.384,
+    "note": "prior measured value; actual per-seed in seed_sweep_results.json"
+  },
+  "experiments": [
+    {
+      "label": "run_a_125repeats",
+      "n_repeats": 125,
+      "n_events": 3125,
+      "n_records_total": 12500,
+      "n_records_user_host": 3125,
+      "threshold": 0.0198,
+      "fpr_per_seed": [
+        0.285,
+        0.705,
+        0.285,
+        0.285,
+        0.58
+      ],
+      "fpr_mean": 0.428,
+      "fpr_delta_vs_baseline": 0.044
+    },
+    {
+      "label": "run_b_250repeats",
+      "n_repeats": 250,
+      "n_events": 6250,
+      "n_records_total": 25000,
+      "n_records_user_host": 6250,
+      "threshold": 0.01,
+      "fpr_per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fpr_mean": 0.0,
+      "fpr_delta_vs_baseline": -0.384
+    }
+  ]
+}

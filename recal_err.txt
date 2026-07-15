@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\recal_broader_normal.py", line 138, in <module>
+    exp.export_model(run_id=RUN, entity_type=ETYPE)
+    ^^^^^^^^^^^^^^^^
+AttributeError: module 'exp' has no attribute 'export_model'

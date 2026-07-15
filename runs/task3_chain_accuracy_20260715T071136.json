@@ -1,0 +1,220 @@
+{
+  "run_id": "run-20260712T160707-a72627",
+  "threshold": 0.45985401459854014,
+  "eval_seed": 1337,
+  "method": "MitreMapper.map_alert() with SHAPAnnotator top-3 ExplanationResult (v4 real SHAP path)",
+  "baseline_v3": {
+    "precision": 0.042,
+    "recall": 0.778,
+    "f1": 0.078,
+    "note": "KB-direct lookup, no SHAP, pre-mapper-fix"
+  },
+  "results": [
+    {
+      "scenario": "brute_force_auth",
+      "n_events": 21,
+      "n_records": 21,
+      "n_alerts": 0,
+      "gt_len": 1,
+      "pred_len": 0,
+      "gt_techniques": [
+        "T1110"
+      ],
+      "pred_techniques": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "n_events": 4,
+      "n_records": 4,
+      "n_alerts": 4,
+      "gt_len": 1,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1059.001"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "n_events": 9,
+      "n_records": 9,
+      "n_alerts": 9,
+      "gt_len": 2,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1021.002",
+        "T1078"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 1,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "credential_stuffing",
+      "n_events": 31,
+      "n_records": 31,
+      "n_alerts": 31,
+      "gt_len": 1,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1110.004"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "n_events": 3,
+      "n_records": 3,
+      "n_alerts": 3,
+      "gt_len": 1,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1134"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "n_events": 2,
+      "n_records": 2,
+      "n_alerts": 2,
+      "gt_len": 1,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1053.005"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "n_events": 50,
+      "n_records": 50,
+      "n_alerts": 50,
+      "gt_len": 1,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1046"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "n_events": 15,
+      "n_records": 15,
+      "n_alerts": 15,
+      "gt_len": 1,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1041"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "n_events": 26,
+      "n_records": 26,
+      "n_alerts": 26,
+      "gt_len": 4,
+      "pred_len": 2,
+      "gt_techniques": [
+        "T1021.002",
+        "T1041",
+        "T1059.001",
+        "T1110"
+      ],
+      "pred_techniques": [
+        "T1021",
+        "T1078"
+      ],
+      "tp": 0,
+      "fp": 2,
+      "fn": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "full_chain_acc": 0.0
+    }
+  ],
+  "aggregate": {
+    "precision_mean": 0.0556,
+    "recall_mean": 0.0556,
+    "f1_mean": 0.0556,
+    "full_chain_acc_mean": 0.0,
+    "total_alerts": 140
+  }
+}

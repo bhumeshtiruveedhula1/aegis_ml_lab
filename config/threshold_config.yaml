@@ -1,0 +1,30 @@
+# AEGIS ML Lab — Threshold Configuration
+# =========================================
+# Per-entity-type percentile targets and cold-start minimum.
+#
+# IMPORTANT: These percentiles are DIRECTIONAL DEFAULTS only.
+# Actual threshold values are DERIVED from each entity's observed calibrated
+# score distribution via compute_ecdf.py — never hardcoded as raw numbers.
+#
+# cold_start_min_events:
+#   Below this count of scored events for an entity, the ENTITY-TYPE level
+#   threshold is used instead of the entity's own computed threshold.
+#   Once an entity crosses this count, its per-entity threshold activates.
+#   The threshold command logs which entities are in cold-start fallback.
+#
+# Source: AEGIS_ML_Lab_ULTIMATE.md §4 rules 7 and 10
+
+IT:
+  target_percentile: 95
+  description: "Flag the top 5% most anomalous IT entity scores as alerts. Consistent with existing >0.70 IT intuition."
+
+OT:
+  target_percentile: 99.5
+  description: "Flag the top 0.5% most anomalous OT entity scores. OT baseline is very stable; any deviation is high-signal. Consistent with existing >0.85 OT intuition."
+
+cold_start_min_events: 30
+cold_start_description: >
+  An entity with fewer than 30 scored events does not have enough history
+  to compute a reliable per-entity ECDF threshold. Such entities fall back
+  to the entity-TYPE-level threshold (IT-wide or OT-wide) until the count
+  is met. This is logged explicitly — never silent.

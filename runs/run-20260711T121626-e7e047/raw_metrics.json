@@ -1,0 +1,62 @@
+{
+  "run_id": "run-20260711T121626-e7e047",
+  "entity_type": "IT",
+  "eval_seed": 1337,
+  "cal_seed": 42,
+  "overlap_verified": true,
+  "overlap_verified_at": "2026-07-12T00:19:21.968371+00:00",
+  "n_alerts_shap_annotated": 34,
+  "scenarios": [
+    {
+      "scenario": "brute_force_auth",
+      "n_attack": 21,
+      "n_normal": 200,
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 0.9299999999999999,
+      "threshold_used": 0.375,
+      "tp": 21,
+      "fp": 28,
+      "raw_attack_mean": 0.021472499736145623,
+      "raw_normal_mean": 0.057633331321604316,
+      "cal_attack_mean": 0.375,
+      "cal_normal_mean": 0.0525,
+      "no_attack_records": false,
+      "note": ""
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "n_attack": 4,
+      "n_normal": 200,
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 1.0,
+      "threshold_used": 0.375,
+      "tp": 4,
+      "fp": 28,
+      "raw_attack_mean": -0.05537946863699694,
+      "raw_normal_mean": 0.057633331321604316,
+      "cal_attack_mean": 1.0,
+      "cal_normal_mean": 0.0525,
+      "no_attack_records": false,
+      "note": ""
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "n_attack": 9,
+      "n_normal": 200,
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 1.0,
+      "threshold_used": 0.375,
+      "tp": 9,
+      "fp": 28,
+      "raw_attack_mean": -0.05537946863699694,
+      "raw_normal_mean": 0.057633331321604316,
+      "cal_attack_mean": 1.0,
+      "cal_normal_mean": 0.0525,
+      "no_attack_records": false,
+      "note": ""
+    }
+  ]
+}

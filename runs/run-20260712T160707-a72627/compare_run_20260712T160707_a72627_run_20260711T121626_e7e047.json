@@ -1,0 +1,46 @@
+{
+  "run_a_label": "run-20260712T160707-a72627",
+  "run_b_label": "run-20260711T121626-e7e047",
+  "n_bootstrap": 10000,
+  "ci_level": 0.95,
+  "overall_verdict": "B_BETTER_ON_ALL_METRICS",
+  "note": "",
+  "metrics": [
+    {
+      "metric": "detection_rate",
+      "run_a_mean": 1.0,
+      "run_b_mean": 1.0,
+      "run_a_ci_lo": 1.0,
+      "run_a_ci_hi": 1.0,
+      "run_b_ci_lo": 1.0,
+      "run_b_ci_hi": 1.0,
+      "overlap": true,
+      "verdict": "NOT_SIGNIFICANTLY_DIFFERENT",
+      "naive_diff": 0.0
+    },
+    {
+      "metric": "fpr",
+      "run_a_mean": 0.145,
+      "run_b_mean": 0.14,
+      "run_a_ci_lo": 0.145,
+      "run_a_ci_hi": 0.145,
+      "run_b_ci_lo": 0.14,
+      "run_b_ci_hi": 0.14,
+      "overlap": false,
+      "verdict": "B_BETTER",
+      "naive_diff": -0.005
+    },
+    {
+      "metric": "auroc",
+      "run_a_mean": 0.9758,
+      "run_b_mean": 0.9767,
+      "run_a_ci_lo": 0.9275,
+      "run_a_ci_hi": 1.0,
+      "run_b_ci_lo": 0.93,
+      "run_b_ci_hi": 1.0,
+      "overlap": true,
+      "verdict": "NOT_SIGNIFICANTLY_DIFFERENT",
+      "naive_diff": 0.0008
+    }
+  ]
+}

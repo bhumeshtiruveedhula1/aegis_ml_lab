@@ -1,0 +1,62 @@
+{
+  "run_id": "run-20260712T160707-a72627",
+  "entity_type": "IT",
+  "generated_at": "2026-07-13T14:15:50 UTC",
+  "overlap_verified": true,
+  "ot_limitation": "OT evaluation not run \u2014 known limitation. Reason: OT baseline window is < 14 days (production data requirement). OT model training was incomplete due to insufficient historical depth. Resolution: accumulate \u226514 days of real OT telemetry, then re-run train \u2192 calibrate \u2192 evaluate for OT entity type.",
+  "scenarios": [
+    {
+      "scenario": "brute_force_auth",
+      "detection_rate": 1.0,
+      "fpr": 0.145,
+      "auroc": 0.9275,
+      "n_attack": 21,
+      "threshold": 0.6116504854368932
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.145,
+      "auroc": 1.0,
+      "n_attack": 4,
+      "threshold": 0.6116504854368932
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.145,
+      "auroc": 1.0,
+      "n_attack": 9,
+      "threshold": 0.6116504854368932
+    }
+  ],
+  "seed_sweep": {
+    "stability_verdict": "STABLE",
+    "dr_range_pp": 0.0,
+    "fpr_range_pp": 4.0,
+    "n_seeds": 5,
+    "notes": []
+  },
+  "drift": null,
+  "shap": {
+    "total_alerts": 68,
+    "top_features": []
+  },
+  "deferred": [
+    {
+      "item": "CRC \u2014 Concept Drift Detection (ADWIN/DDM)",
+      "status": "DEFERRED",
+      "reason": "Requires a live production event stream to detect real temporal drift. The lab operates on a fixed synthetic baseline \u2014 ADWIN cannot be meaningfully applied without sequential real-world data across time windows."
+    },
+    {
+      "item": "ADWIN Statistical Drift Window",
+      "status": "DEFERRED",
+      "reason": "Depends on CRC above. ADWIN requires a sliding-window stream of production decision scores with timestamps. Not available in the lab's static evaluation setup."
+    },
+    {
+      "item": "SHAP-NL \u2014 Natural Language SHAP Explanations",
+      "status": "DEFERRED",
+      "reason": "Requires an LLM integration layer to convert SHAP feature importance vectors into human-readable narrative explanations. Out of scope for the ML lab layer; belongs in the alert rendering / SOC UI layer."
+    }
+  ]
+}

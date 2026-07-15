@@ -1,0 +1,14 @@
+{
+  "run_id": "run-20260711T121626-e7e047",
+  "entity_type": "IT",
+  "total_alerts": 157,
+  "feature_counts": {
+    "event_type_frequency_rank": 105,
+    "event_type_frequency": 42,
+    "is_business_hours": 42,
+    "day_baseline_frequency": 52,
+    "hour_relative_frequency": 52,
+    "hour_baseline_frequency": 115,
+    "hour_of_day": 63
+  }
+}

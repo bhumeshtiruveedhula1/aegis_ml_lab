@@ -1,0 +1,10 @@
+{
+  "run_id": "run-20260714T194735-6e8c8a",
+  "entity_type": "IT",
+  "total_alerts": 161,
+  "feature_counts": {
+    "has_command_line": 161,
+    "day_of_week": 161,
+    "entity_modbus_event_count": 161
+  }
+}

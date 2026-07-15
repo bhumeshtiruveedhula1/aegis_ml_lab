@@ -1,0 +1,12 @@
+{
+  "run_id": "run-20260714T195613-f4bcaa",
+  "entity_type": "IT",
+  "total_alerts": 161,
+  "feature_counts": {
+    "time_since_last_seen_hours": 21,
+    "day_baseline_frequency": 21,
+    "has_command_line": 161,
+    "has_user_baseline": 140,
+    "day_of_week": 140
+  }
+}

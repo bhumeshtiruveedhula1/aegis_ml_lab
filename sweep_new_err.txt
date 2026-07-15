@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\export_and_sweep.py", line 34, in <module>
+    per_scenario[r['scenario']].append(r)
+                 ~^^^^^^^^^^^^
+TypeError: 'SeedResult' object is not subscriptable

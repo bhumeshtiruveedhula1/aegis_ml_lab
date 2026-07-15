@@ -1,0 +1,58 @@
+Original calibration: 276 samples (76 attack, 200 normal)
+2026-07-14 09:20:14 [info     ] baseline_reader_start          file=C:\Users\bhumeshjyothi\Desktop\cyber-et\cybershield\data\normalized\normalized_events.jsonl
+2026-07-14 09:20:14 [info     ] baseline_reader_complete       events_yielded=1000 file=C:\Users\bhumeshjyothi\Desktop\cyber-et\cybershield\data\normalized\normalized_events.jsonl lines_read=1000 parse_errors=0
+Extra normal events loaded: 200 (slice [400:600])
+2026-07-14 09:20:14 [info     ] baseline_reader_loaded         entity_count=18 profile_id=d6b71c13-79cb-4e6d-b046-ae9841c8109a
+2026-07-14 09:20:14 [info     ] feature_pipeline_initialised   baseline_ready=True extractors=['temporal', 'frequency', 'network', 'process', 'auth', 'ot', 'baseline_presence', 'entity_activity']
+2026-07-14 09:20:14 [info     ] feature_pipeline_batch_complete duration_s=0.045082 errors=0 events=200 records=800
+Extra normal feature records: 200
+Extra normal raw IF scores: mean=0.0500  std=0.0326  min=-0.0703  max=0.1075
+
+Augmented calibration: 476 samples (76 attack, 400 normal)
+
+OLD calibrator (on full aug set):
+  normal_proba: mean=0.1157  max=1.0000
+2026-07-14 09:20:14 [info     ] calibrator_fitted              entity_type=IT n_attack=76 n_normal=400 n_samples=476 run_id=run-20260712T160707-a72627
+
+NEW calibrator (on full aug set):
+  normal_proba: mean=0.0874  max=0.9286
+  attack_proba: mean=0.5400
+  separation  : +0.4526
+2026-07-14 09:20:14 [info     ] calibrator_mirrored_to_registry path=C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\models\registry\run-20260712T160707-a72627\IT\calibrator.pkl
+2026-07-14 09:20:14 [info     ] calibrator_saved               meta=C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\calibration\calibrators\run-20260712T160707-a72627_IT_meta.json pkl=C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\calibration\calibrators\run-20260712T160707-a72627_IT.pkl
+
+Calibrator saved (overwritten): calibration/calibrators/run-20260712T160707-a72627_IT.pkl
+
+Re-computing ECDF threshold on new calibrator...
+2026-07-14 09:20:14 [info     ] threshold_type_level_computed  entity_type=IT n_entities=6 target_percentile=95 total_scored_events=276 type_fallback=0.45985401459854014
+2026-07-14 09:20:14 [warning  ] threshold_cold_start_fallback_applied cold_start_entities=["entity_type='user_host' entity_id='attacker::hospital-server-01'", "entity_type='user_host' entity_id='attacker::hospital-server-02'"] entity_type=IT fallback_threshold=0.45985401459854014 min_events_required=30 n_cold_start=2 note='These 2 entities had fewer than 30 calibration events. They will use the type-level threshold (0.4599) instead of a per-entity threshold.'
+2026-07-14 09:20:14 [info     ] threshold_per_entity_computed  entity_type=IT n_per_entity=4
+
+=== THRESHOLD RESULTS ===
+
+  Entity type          : IT
+  Run ID               : run-20260712T160707-a72627
+  Target percentile    : 95th
+  Cold-start minimum   : 30 events
+  Type-level fallback  : 0.4599
+
+  Entities with per-entity threshold : 4
+  Entities on cold-start fallback    : 2
+
+  Cold-start entities (using type-level threshold):
+    entity_type='user_host' entity_id='attacker::hospital-server-01'  (n_scored=4)
+    entity_type='user_host' entity_id='attacker::hospital-server-02'  (n_scored=9)
+
+  Per-entity thresholds:
+    entity_type='user_host' entity_id='attacker::hospital-server-01'  threshold=0.4599  (fallback)  n=4
+    entity_type='user_host' entity_id='attacker::hospital-server-02'  threshold=0.4599  (fallback)  n=9
+    entity_type='user_host' entity_id='corp\\\\admin::hospital-server-01'  threshold=0.4599  (per-entity)  n=59
+    entity_type='user_host' entity_id='corp\\\\nurse01::hospital-server-01'  threshold=0.4599  (per-entity)  n=47
+    entity_type='user_host' entity_id='svc-db::hospital-server-01'  threshold=0.4599  (per-entity)  n=47
+    entity_type='user_host' entity_id='svc-iis::hospital-server-01'  threshold=0.4599  (per-entity)  n=110
+
+2026-07-14 09:20:14 [info     ] thresholds_saved               path=C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\thresholds\run-20260712T160707-a72627_IT_thresholds.json
+  Saved to: C:\Users\bhumeshjyothi\Desktop\cyber-et\aegis_ml_lab\thresholds\run-20260712T160707-a72627_IT_thresholds.json
+NEW calibrated threshold (ECDF 95th pct): 0.459854  (was 0.611650)
+
+Re-exporting updated calibrator to production store...

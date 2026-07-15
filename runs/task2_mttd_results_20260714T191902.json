@@ -1,0 +1,377 @@
+{
+  "run_id": "run-20260712T160707-a72627",
+  "threshold": 0.45985401459854014,
+  "n_trials": 5,
+  "n_scenarios": 9,
+  "results": [
+    {
+      "scenario": "brute_force_auth",
+      "seed": 0,
+      "detected": false,
+      "n_events": 21,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "brute_force_auth",
+      "seed": 1,
+      "detected": false,
+      "n_events": 21,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "brute_force_auth",
+      "seed": 2,
+      "detected": false,
+      "n_events": 21,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "brute_force_auth",
+      "seed": 3,
+      "detected": false,
+      "n_events": 21,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "brute_force_auth",
+      "seed": 4,
+      "detected": false,
+      "n_events": 21,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "seed": 0,
+      "detected": false,
+      "n_events": 4,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "seed": 1,
+      "detected": false,
+      "n_events": 4,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "seed": 2,
+      "detected": false,
+      "n_events": 4,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "seed": 3,
+      "detected": false,
+      "n_events": 4,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "seed": 4,
+      "detected": false,
+      "n_events": 4,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "seed": 0,
+      "detected": false,
+      "n_events": 9,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "seed": 1,
+      "detected": false,
+      "n_events": 9,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "seed": 2,
+      "detected": false,
+      "n_events": 9,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "seed": 3,
+      "detected": false,
+      "n_events": 9,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "seed": 4,
+      "detected": false,
+      "n_events": 9,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "credential_stuffing",
+      "seed": 0,
+      "detected": false,
+      "n_events": 31,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "credential_stuffing",
+      "seed": 1,
+      "detected": false,
+      "n_events": 31,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "credential_stuffing",
+      "seed": 2,
+      "detected": false,
+      "n_events": 31,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "credential_stuffing",
+      "seed": 3,
+      "detected": false,
+      "n_events": 31,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "credential_stuffing",
+      "seed": 4,
+      "detected": false,
+      "n_events": 31,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "seed": 0,
+      "detected": false,
+      "n_events": 3,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "seed": 1,
+      "detected": false,
+      "n_events": 3,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "seed": 2,
+      "detected": false,
+      "n_events": 3,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "seed": 3,
+      "detected": false,
+      "n_events": 3,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "seed": 4,
+      "detected": false,
+      "n_events": 3,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "seed": 0,
+      "detected": false,
+      "n_events": 2,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "seed": 1,
+      "detected": false,
+      "n_events": 2,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "seed": 2,
+      "detected": false,
+      "n_events": 2,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "seed": 3,
+      "detected": false,
+      "n_events": 2,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "seed": 4,
+      "detected": false,
+      "n_events": 2,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "seed": 0,
+      "detected": false,
+      "n_events": 50,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "seed": 1,
+      "detected": false,
+      "n_events": 50,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "seed": 2,
+      "detected": false,
+      "n_events": 50,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "seed": 3,
+      "detected": false,
+      "n_events": 50,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "seed": 4,
+      "detected": false,
+      "n_events": 50,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "seed": 0,
+      "detected": false,
+      "n_events": 15,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "seed": 1,
+      "detected": false,
+      "n_events": 15,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "seed": 2,
+      "detected": false,
+      "n_events": 15,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "seed": 3,
+      "detected": false,
+      "n_events": 15,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "seed": 4,
+      "detected": false,
+      "n_events": 15,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "seed": 0,
+      "detected": false,
+      "n_events": 26,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "seed": 1,
+      "detected": false,
+      "n_events": 26,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "seed": 2,
+      "detected": false,
+      "n_events": 26,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "seed": 3,
+      "detected": false,
+      "n_events": 26,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "seed": 4,
+      "detected": false,
+      "n_events": 26,
+      "mttd_simulated_s": null,
+      "mttd_processing_ms": null
+    }
+  ],
+  "summary": {
+    "detected": 0,
+    "total": 45,
+    "sim_mttd_min_s": null,
+    "sim_mttd_max_s": null,
+    "sim_mttd_mean_s": null,
+    "proc_latency_mean_ms": null,
+    "within_2min_pct": null
+  }
+}

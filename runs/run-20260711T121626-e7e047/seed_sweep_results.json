@@ -1,0 +1,175 @@
+{
+  "run_id": "run-20260711T121626-e7e047",
+  "entity_type": "IT",
+  "n_seeds": 5,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "scenarios": [
+    "brute_force_auth",
+    "command_execution_powershell",
+    "lateral_movement_smb"
+  ],
+  "stability_verdict": "UNSTABLE",
+  "dr_range_pp": 100.0,
+  "fpr_range_pp": 2.5,
+  "stability_notes": [
+    "UNSTABLE: Detection rate range=100.0pp across 5 seeds (threshold: 10.0pp). Model performance depends strongly on IF random seed."
+  ],
+  "per_seed_results": [
+    {
+      "seed": 0,
+      "scenario": "brute_force_auth",
+      "detection_rate": 0.0,
+      "fpr": 0.14,
+      "auroc": 0.43,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 0,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 0.9299999999999999,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 0,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.14,
+      "auroc": 0.9299999999999999,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 1,
+      "scenario": "brute_force_auth",
+      "detection_rate": 0.0,
+      "fpr": 0.115,
+      "auroc": 0.4425,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 1,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.115,
+      "auroc": 0.9425,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 1,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.115,
+      "auroc": 0.9425,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 2,
+      "scenario": "brute_force_auth",
+      "detection_rate": 0.0,
+      "fpr": 0.135,
+      "auroc": 0.4325,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 2,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.135,
+      "auroc": 0.9325,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 2,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.135,
+      "auroc": 0.9325,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 3,
+      "scenario": "brute_force_auth",
+      "detection_rate": 0.0,
+      "fpr": 0.125,
+      "auroc": 0.4375,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 3,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.125,
+      "auroc": 0.935,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 3,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.125,
+      "auroc": 0.935,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 4,
+      "scenario": "brute_force_auth",
+      "detection_rate": 0.0,
+      "fpr": 0.13,
+      "auroc": 0.4325,
+      "n_attack": 21,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 4,
+      "scenario": "command_execution_powershell",
+      "detection_rate": 1.0,
+      "fpr": 0.13,
+      "auroc": 0.935,
+      "n_attack": 4,
+      "n_normal": 200,
+      "threshold": 0.375
+    },
+    {
+      "seed": 4,
+      "scenario": "lateral_movement_smb",
+      "detection_rate": 1.0,
+      "fpr": 0.13,
+      "auroc": 0.935,
+      "n_attack": 9,
+      "n_normal": 200,
+      "threshold": 0.375
+    }
+  ]
+}

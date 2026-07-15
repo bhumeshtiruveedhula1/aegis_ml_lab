@@ -1,0 +1,11 @@
+{
+  "entity_type": "IT",
+  "run_id": "run-20260715T023436-74702a",
+  "n_calibration_samples": 223,
+  "n_attack": 23,
+  "n_normal": 200,
+  "is_fitted": true,
+  "sklearn_class": "IsotonicRegression",
+  "increasing": true,
+  "score_direction": "negated_before_fit (lower IF score = higher calibrated prob)"
+}
