@@ -111,19 +111,29 @@ def measure_mttd(scenario_name: str, kwargs: dict, det_pipeline, calibrator, thr
     first_alert_wall = None
     first_alert_event_ts = None
     n_alerts = 0
+    scoring_elapsed_s = 0.0   # accumulates pure scoring time until first alert
+    first_alert_reached = False
 
     for ev in sorted(events, key=lambda e: e.timestamp):
         try:
+            # --- isolated scoring timer: feature extraction + IF + calibration only ---
+            ts0 = time.perf_counter()
             recs = _get_feature_records([ev], reader, entity_dim)
             if not recs:
                 continue
             raw = _score_records(pipeline, recs)
             cal = calibrator.predict_proba(raw)          # ← correct method
+            ts1 = time.perf_counter()
+            # --- end isolated timer ---
             if any(s >= threshold for s in cal):
                 n_alerts += 1
                 if first_alert_wall is None:
                     first_alert_wall = time.perf_counter()
                     first_alert_event_ts = ev.timestamp
+                    scoring_elapsed_s += (ts1 - ts0)
+                    first_alert_reached = True
+            if not first_alert_reached:
+                scoring_elapsed_s += (ts1 - ts0)
         except Exception as exc:
             logger.debug("score_event_failed", scenario=scenario_name, error=str(exc))
 
@@ -135,6 +145,7 @@ def measure_mttd(scenario_name: str, kwargs: dict, det_pipeline, calibrator, thr
 
     mttd_simulated_s = (first_alert_event_ts - t0_simulated).total_seconds()
     mttd_processing_ms = (first_alert_wall - t0_wall) * 1000.0
+    scoring_latency_ms = scoring_elapsed_s * 1000.0  # isolated: feature extraction + IF + calibration only
 
     return {
         "scenario": scenario_name, "seed": seed,
@@ -145,6 +156,7 @@ def measure_mttd(scenario_name: str, kwargs: dict, det_pipeline, calibrator, thr
         "first_alert_event_ts": first_alert_event_ts.isoformat(),
         "mttd_simulated_s": round(mttd_simulated_s, 3),
         "mttd_processing_ms": round(mttd_processing_ms, 3),
+        "scoring_latency_ms": round(scoring_latency_ms, 3),
     }
 
 
@@ -203,7 +215,10 @@ if __name__ == "__main__":
         within_2min = sum(1 for s in sims_all if s <= 120) / len(sims_all) * 100
         print(f"\nOVERALL: {len(detected)}/{len(all_results)} detected")
         print(f"  SimMTTD: min={min(sims_all):.3f}s  median={np.median(sims_all):.3f}s  max={max(sims_all):.3f}s  mean={np.mean(sims_all):.3f}s")
-        print(f"  ProcLatency: min={min(procs_all):.2f}ms  median={np.median(procs_all):.2f}ms  max={max(procs_all):.2f}ms")
+        print(f"  ProcLatency (gen+score): min={min(procs_all):.2f}ms  median={np.median(procs_all):.2f}ms  max={max(procs_all):.2f}ms")
+        score_only = [r["scoring_latency_ms"] for r in detected if "scoring_latency_ms" in r]
+        if score_only:
+            print(f"  ScoringLatency (pipeline only, no gen): min={min(score_only):.2f}ms  median={np.median(score_only):.2f}ms  max={max(score_only):.2f}ms")
         print(f"  Within 2-min target: {within_2min:.0f}%")
     else:
         print(f"\nOVERALL: 0/{len(all_results)} detected. Diagnose with seed_sweep to confirm IF is scoring correctly.")
@@ -227,5 +242,10 @@ if __name__ == "__main__":
             "proc_latency_mean_ms": round(float(np.mean(procs_all)), 2),
             "within_2min_pct": round(within_2min, 1),
         }
+        score_only = [r["scoring_latency_ms"] for r in detected if "scoring_latency_ms" in r]
+        if score_only:
+            summary["aggregate"]["scoring_latency_median_ms"] = round(float(np.median(score_only)), 3)
+            summary["aggregate"]["scoring_latency_mean_ms"] = round(float(np.mean(score_only)), 3)
+            summary["aggregate"]["scoring_latency_max_ms"] = round(float(np.max(score_only)), 3)
     out.write_text(json.dumps(summary, indent=2, default=str))
     print(f"\n[Task 2] Written to {out}")
