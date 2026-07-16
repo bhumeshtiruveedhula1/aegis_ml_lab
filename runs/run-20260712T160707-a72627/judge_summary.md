@@ -239,6 +239,8 @@ as the FPR constraint — not a mapper code issue.
 | 4 | FPR fix via calibration-diversity expansion: attempted, not effective | Run and reported honestly |
 | 5 | MITRE chain-link accuracy F1=0.056 vs ~70% target | Mapper bug fixed (1545/0/0); metric still failing — correctly attributed to cold-start data thinness, not mapper logic |
 | 6 | Simulated MTTD = 0.000s: timestamp compression artefact | Documented — pipeline scoring latency 3.55ms median (isolated), 5.01ms total incl. generation |
+| 7 | Cold-start records (no entity baseline) scored at same threshold as baselined records — no cold-start-specific gate or threshold exists | `baseline_available=False` surfaced on `DetectionAlert`, as `baseline_coverage=0.0` in context, and as structured `WARNING feature_pipeline_cold_start_partial_vector` log. Operator-visible; not silently swallowed. Per-entity adaptive thresholding is a post-demo architecture decision — **defer past demo** |
+| 8 | `detection/storage.py` does not persist `baseline_available` field — cold-start alerts are not queryable post-hoc by baseline state | Gap identified. `baseline_available` is on the live alert object and context summary at emission time; storage layer does not carry it forward. Non-blocking for demo — **defer past demo** |
 
 ---
 
