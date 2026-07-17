@@ -3,9 +3,9 @@
   "entity_type": "IT",
   "seed_calibration": 42,
   "seed_evaluation": 1337,
-  "calibration_count": 223,
+  "calibration_count": 234,
   "evaluation_count": 234,
-  "calibration_attack_count": 23,
+  "calibration_attack_count": 34,
   "evaluation_attack_count": 34,
   "records": [
     {
@@ -1611,7 +1611,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1619,7 +1619,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1627,7 +1627,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1635,7 +1635,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1643,7 +1643,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1651,7 +1651,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1659,7 +1659,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1667,7 +1667,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1675,7 +1675,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1683,7 +1683,95 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
+      "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
+      "seed": 42,
+      "split": "calibration"
+    },
+    {
+      "scenario": "brute_force_auth",
+      "label": 1,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1691,7 +1779,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.03412609785491516,
+      "raw_score": 0.03750384101407511,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1699,7 +1787,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.1085852893754734,
+      "raw_score": 0.10799521923983402,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1707,7 +1795,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.03412609785491516,
+      "raw_score": 0.03750384101407511,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1715,7 +1803,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.03412609785491516,
+      "raw_score": 0.03750384101407511,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 42,
       "split": "calibration"
@@ -1723,7 +1811,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1731,7 +1819,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1739,7 +1827,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1747,7 +1835,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1755,7 +1843,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1763,7 +1851,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1771,7 +1859,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1779,7 +1867,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -1787,7 +1875,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 42,
       "split": "calibration"
@@ -3395,7 +3483,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3403,7 +3491,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3411,7 +3499,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3419,7 +3507,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3427,7 +3515,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3435,7 +3523,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3443,7 +3531,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3451,7 +3539,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3459,7 +3547,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3467,7 +3555,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3475,7 +3563,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3483,7 +3571,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3491,7 +3579,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3499,7 +3587,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3507,7 +3595,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3515,7 +3603,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3523,7 +3611,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3531,7 +3619,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3539,7 +3627,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3547,7 +3635,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3555,7 +3643,7 @@
     {
       "scenario": "brute_force_auth",
       "label": 1,
-      "raw_score": 0.059782037646195274,
+      "raw_score": 0.07272749237410514,
       "entity_key": "entity_type='user_host' entity_id='svc-iis::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3563,7 +3651,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.03412609785491516,
+      "raw_score": 0.03750384101407511,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3571,7 +3659,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.1085852893754734,
+      "raw_score": 0.10799521923983402,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3579,7 +3667,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.03412609785491516,
+      "raw_score": 0.03750384101407511,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3587,7 +3675,7 @@
     {
       "scenario": "command_execution_powershell",
       "label": 1,
-      "raw_score": 0.03412609785491516,
+      "raw_score": 0.03750384101407511,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-01'",
       "seed": 1337,
       "split": "evaluation"
@@ -3595,7 +3683,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3603,7 +3691,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3611,7 +3699,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3619,7 +3707,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3627,7 +3715,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3635,7 +3723,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3643,7 +3731,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3651,7 +3739,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"
@@ -3659,7 +3747,7 @@
     {
       "scenario": "lateral_movement_smb",
       "label": 1,
-      "raw_score": 0.10449697808572389,
+      "raw_score": 0.09260585630524565,
       "entity_key": "entity_type='user_host' entity_id='attacker::hospital-server-02'",
       "seed": 1337,
       "split": "evaluation"

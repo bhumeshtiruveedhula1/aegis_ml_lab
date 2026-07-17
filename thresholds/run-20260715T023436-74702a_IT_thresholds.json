@@ -3,37 +3,37 @@
   "entity_type": "IT",
   "target_percentile": 95,
   "cold_start_min_events": 30,
-  "type_level_fallback": 0.09939271255059963,
+  "type_level_fallback": 0.5121951219512195,
   "per_entity_count": 4,
   "cold_start_count": 2,
   "entity_thresholds": {
     "entity_type='user_host' entity_id='svc-iis::hospital-server-01'": {
-      "threshold": 0.5263157894736842,
+      "threshold": 0.5121951219512195,
       "method": "per_entity",
-      "n_scored": 57
+      "n_scored": 68
     },
     "entity_type='user_host' entity_id='corp\\\\\\\\nurse01::hospital-server-01'": {
-      "threshold": 0.07692307692307693,
+      "threshold": 0.5121951219512195,
       "method": "per_entity",
       "n_scored": 47
     },
     "entity_type='user_host' entity_id='svc-db::hospital-server-01'": {
-      "threshold": 0.3914979757085001,
+      "threshold": 0.5121951219512195,
       "method": "per_entity",
       "n_scored": 47
     },
     "entity_type='user_host' entity_id='corp\\\\\\\\admin::hospital-server-01'": {
-      "threshold": 0.5263157894736842,
+      "threshold": 0.5121951219512195,
       "method": "per_entity",
       "n_scored": 59
     },
     "entity_type='user_host' entity_id='attacker::hospital-server-01'": {
-      "threshold": 0.09939271255059963,
+      "threshold": 0.5121951219512195,
       "method": "cold_start_fallback",
       "n_scored": 4
     },
     "entity_type='user_host' entity_id='attacker::hospital-server-02'": {
-      "threshold": 0.09939271255059963,
+      "threshold": 0.5121951219512195,
       "method": "cold_start_fallback",
       "n_scored": 9
     }

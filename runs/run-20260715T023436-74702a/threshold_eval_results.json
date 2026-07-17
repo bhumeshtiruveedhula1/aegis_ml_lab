@@ -1,0 +1,39 @@
+{
+  "run_id": "run-20260715T023436-74702a",
+  "entity_type": "IT",
+  "measured_at": "2026-07-17T10:29:42.434066+00:00",
+  "all_passed": true,
+  "verdict": "PASS \u2014 implementation requires no changes",
+  "criteria": [
+    {
+      "name": "Per-entity threshold behaviour",
+      "passed": true,
+      "finding": "4 entities have per-entity thresholds with 3 distinct values: [0.0769230769, 0.3914979757, 0.5263157895]",
+      "evidence": "thresholds/run-20260715T023436-74702a_IT_thresholds.json \u2014 entity_thresholds[method=per_entity]"
+    },
+    {
+      "name": "Cold-start threshold behaviour",
+      "passed": true,
+      "finding": "2 cold-start entities. All use type_level_fallback (0.099393): True. All below min_events=30: True. Entities: [(\"entity_type='user_host' entity_id='attacker::hospital-server-01'\", 4), (\"entity_type='user_host' entity_id='attacker::hospital-server-02'\", 9)]",
+      "evidence": "thresholds/run-20260715T023436-74702a_IT_thresholds.json \u2014 entity_thresholds[method=cold_start_fallback]; compute_ecdf.py:186 (thresh = type_fallback when n < min_events)"
+    },
+    {
+      "name": "Threshold fallback for unseen entity",
+      "passed": true,
+      "finding": "Unseen entity fallback: 0.099393 (expected 0.099393, match=True). Per-entity lookup: True. Cold-start lookup: True.",
+      "evidence": "compute_ecdf.py:75-80 (get_threshold returns type_level_fallback if entity_key not in dict)"
+    },
+    {
+      "name": "Threshold persistence round-trip",
+      "passed": true,
+      "finding": "Round-trip: lossless. All values match exactly.",
+      "evidence": "compute_ecdf.py:229-264 (save_thresholds/load_thresholds)"
+    },
+    {
+      "name": "FPR vs 5% project target",
+      "passed": true,
+      "finding": "Mean FPR across 9 scenarios: 4.0% (target < 5%). All below target: True. Per-scenario: brute_force_auth: fpr=4.0%; command_execution_powershell: fpr=4.0%; lateral_movement_smb: fpr=4.0%; credential_stuffing: fpr=4.0%; privilege_escalation_token: fpr=4.0%; persistence_scheduled_task: fpr=4.0%; network_discovery_scan: fpr=4.0%; data_exfiltration_http: fpr=4.0%; full_kill_chain_it: fpr=4.0%",
+      "evidence": "raw_metrics.json \u2014 scenarios[].fpr"
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "n_scenarios": 9,
+  "n_with_any_tp": 9,
+  "n_chains_total": 9,
+  "attack_chain_detection_accuracy": 1.0,
+  "mean_technique_recall": 1.0,
+  "target_accuracy": 0.7,
+  "target_met": true,
+  "scenarios": [
+    {
+      "scenario": "brute_force_auth",
+      "ground_truth_techniques": [
+        "T1110"
+      ],
+      "detected_techniques": [
+        "T1110"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1110"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "credential_stuffing",
+      "ground_truth_techniques": [
+        "T1110.004"
+      ],
+      "detected_techniques": [
+        "T1110"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1110.004"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "lateral_movement_smb",
+      "ground_truth_techniques": [
+        "T1021.002",
+        "T1078"
+      ],
+      "detected_techniques": [
+        "T1021.002",
+        "T1078"
+      ],
+      "chains_found": 1,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1021.002",
+        "T1078"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "privilege_escalation_token",
+      "ground_truth_techniques": [
+        "T1134"
+      ],
+      "detected_techniques": [
+        "T1134"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1134"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "persistence_scheduled_task",
+      "ground_truth_techniques": [
+        "T1053.005"
+      ],
+      "detected_techniques": [
+        "T1053"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1053.005"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "command_execution_powershell",
+      "ground_truth_techniques": [
+        "T1059.001"
+      ],
+      "detected_techniques": [
+        "T1059.001"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1059.001"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "network_discovery_scan",
+      "ground_truth_techniques": [
+        "T1046"
+      ],
+      "detected_techniques": [
+        "T1046"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1046"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "data_exfiltration_http",
+      "ground_truth_techniques": [
+        "T1041"
+      ],
+      "detected_techniques": [
+        "T1041"
+      ],
+      "chains_found": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1041"
+      ],
+      "kb_missing": []
+    },
+    {
+      "scenario": "full_kill_chain_it",
+      "ground_truth_techniques": [
+        "T1110",
+        "T1021.002",
+        "T1059.001",
+        "T1041"
+      ],
+      "detected_techniques": [
+        "T1021.002",
+        "T1041",
+        "T1059.001",
+        "T1110"
+      ],
+      "chains_found": 1,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "any_tp_detected": true,
+      "kb_coverage": [
+        "T1110",
+        "T1021.002",
+        "T1059.001",
+        "T1041"
+      ],
+      "kb_missing": []
+    }
+  ],
+  "measured_at": "2026-07-17T16:52:14.002872+00:00",
+  "kb_version": "ATT&CK-v15"
+}

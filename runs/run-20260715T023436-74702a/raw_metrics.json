@@ -4,23 +4,23 @@
   "eval_seed": 1337,
   "cal_seed": 42,
   "overlap_verified": true,
-  "overlap_verified_at": "2026-07-15T02:35:07.097308+00:00",
-  "n_alerts_shap_annotated": 27,
+  "overlap_verified_at": "2026-07-17T16:52:13.672330+00:00",
+  "n_alerts_shap_annotated": 161,
   "scenarios": [
     {
       "scenario": "brute_force_auth",
       "n_attack": 21,
       "n_normal": 200,
       "detection_rate": 1.0,
-      "fpr": 0.115,
-      "auroc": 0.975,
-      "threshold_used": 0.09939271255059963,
+      "fpr": 0.09,
+      "auroc": 0.9500000000000001,
+      "threshold_used": 0.5121951219512195,
       "tp": 21,
-      "fp": 23,
-      "raw_attack_mean": 0.059782037646195274,
+      "fp": 18,
+      "raw_attack_mean": 0.07272749237410511,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.5263157894736844,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5121951219512194,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -28,16 +28,16 @@
       "scenario": "command_execution_powershell",
       "n_attack": 4,
       "n_normal": 200,
-      "detection_rate": 0.75,
-      "fpr": 0.115,
-      "auroc": 0.86,
-      "threshold_used": 0.09939271255059963,
-      "tp": 3,
-      "fp": 23,
-      "raw_attack_mean": 0.05274089573505472,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9856250000000001,
+      "threshold_used": 0.5121951219512195,
+      "tp": 4,
+      "fp": 18,
+      "raw_attack_mean": 0.013089955779029605,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.5763888888888888,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.6905487804878049,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -45,16 +45,16 @@
       "scenario": "lateral_movement_smb",
       "n_attack": 9,
       "n_normal": 200,
-      "detection_rate": 0.0,
-      "fpr": 0.115,
-      "auroc": 0.7275,
-      "threshold_used": 0.09939271255059963,
-      "tp": 0,
-      "fp": 23,
-      "raw_attack_mean": 0.10449697808572389,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9500000000000001,
+      "threshold_used": 0.5121951219512195,
+      "tp": 9,
+      "fp": 18,
+      "raw_attack_mean": 0.05003561002660162,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.07692307692307693,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5121951219512195,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -62,16 +62,16 @@
       "scenario": "credential_stuffing",
       "n_attack": 31,
       "n_normal": 200,
-      "detection_rate": 0.0,
-      "fpr": 0.115,
-      "auroc": 0.4475,
-      "threshold_used": 0.09939271255059963,
-      "tp": 0,
-      "fp": 23,
-      "raw_attack_mean": 0.10858528937547343,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9500000000000001,
+      "threshold_used": 0.5121951219512195,
+      "tp": 31,
+      "fp": 18,
+      "raw_attack_mean": 0.05003561002660159,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.05555555555555556,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5121951219512194,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -79,16 +79,16 @@
       "scenario": "privilege_escalation_token",
       "n_attack": 3,
       "n_normal": 200,
-      "detection_rate": 0.0,
-      "fpr": 0.115,
-      "auroc": 0.5408333333333333,
-      "threshold_used": 0.09939271255059963,
-      "tp": 0,
-      "fp": 23,
-      "raw_attack_mean": 0.09676066792924021,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9500000000000001,
+      "threshold_used": 0.5121951219512195,
+      "tp": 3,
+      "fp": 18,
+      "raw_attack_mean": 0.05529838749555571,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.06267806267806268,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5121951219512195,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -96,16 +96,16 @@
       "scenario": "persistence_scheduled_task",
       "n_attack": 2,
       "n_normal": 200,
-      "detection_rate": 0.5,
-      "fpr": 0.115,
-      "auroc": 0.8625,
-      "threshold_used": 0.09939271255059963,
-      "tp": 1,
-      "fp": 23,
-      "raw_attack_mean": 0.05361876144584449,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.97375,
+      "threshold_used": 0.5121951219512195,
+      "tp": 2,
+      "fp": 18,
+      "raw_attack_mean": 0.03329934006498475,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.41346153846153844,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.6310975609756098,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -113,16 +113,16 @@
       "scenario": "network_discovery_scan",
       "n_attack": 50,
       "n_normal": 200,
-      "detection_rate": 0.0,
-      "fpr": 0.115,
-      "auroc": 0.4475,
-      "threshold_used": 0.09939271255059963,
-      "tp": 0,
-      "fp": 23,
-      "raw_attack_mean": 0.1085852893754734,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9500000000000001,
+      "threshold_used": 0.5121951219512195,
+      "tp": 50,
+      "fp": 18,
+      "raw_attack_mean": 0.05003561002660161,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.05555555555555555,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5121951219512195,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -130,16 +130,16 @@
       "scenario": "data_exfiltration_http",
       "n_attack": 15,
       "n_normal": 200,
-      "detection_rate": 0.0,
-      "fpr": 0.115,
-      "auroc": 0.4475,
-      "threshold_used": 0.09939271255059963,
-      "tp": 0,
-      "fp": 23,
-      "raw_attack_mean": 0.10858528937547343,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9500000000000001,
+      "threshold_used": 0.5121951219512195,
+      "tp": 15,
+      "fp": 18,
+      "raw_attack_mean": 0.05003561002660162,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.055555555555555566,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5121951219512193,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     },
@@ -147,18 +147,296 @@
       "scenario": "full_kill_chain_it",
       "n_attack": 26,
       "n_normal": 200,
-      "detection_rate": 0.07692307692307693,
-      "fpr": 0.115,
-      "auroc": 0.48980769230769233,
-      "threshold_used": 0.09939271255059963,
-      "tp": 2,
-      "fp": 23,
-      "raw_attack_mean": 0.1028576592585074,
+      "detection_rate": 1.0,
+      "fpr": 0.09,
+      "auroc": 0.9536538461538462,
+      "threshold_used": 0.5121951219512195,
+      "tp": 26,
+      "fp": 18,
+      "raw_attack_mean": 0.046246312155055765,
       "raw_normal_mean": 0.10198581050702202,
-      "cal_attack_mean": 0.10897435897435896,
-      "cal_normal_mean": 0.06363990479166129,
+      "cal_attack_mean": 0.5304878048780488,
+      "cal_normal_mean": 0.09005753084338576,
       "no_attack_records": false,
       "note": ""
     }
-  ]
+  ],
+  "mttd_summary": {
+    "n_alerts": 161,
+    "primary_mean_s": -0.5949,
+    "primary_median_s": -0.4082,
+    "primary_p95_s": 0.0297,
+    "primary_min_s": -7.9048,
+    "primary_max_s": 0.0542,
+    "secondary_mean_s": 0.0503,
+    "secondary_median_s": 0.0498,
+    "secondary_p95_s": 0.0972,
+    "secondary_min_s": 0.006,
+    "secondary_max_s": 0.1033,
+    "target_s": 120.0,
+    "target_met": true,
+    "pct_alerts_within_target": 100.0,
+    "per_scenario": {
+      "brute_force_auth": {
+        "n": 21,
+        "mean_s": -0.3841,
+        "min_s": -0.8625,
+        "max_s": 0.0487
+      },
+      "command_execution_powershell": {
+        "n": 4,
+        "mean_s": -0.2397,
+        "min_s": -0.6537,
+        "max_s": 0.009
+      },
+      "credential_stuffing": {
+        "n": 31,
+        "mean_s": -0.4087,
+        "min_s": -0.8782,
+        "max_s": 0.0297
+      },
+      "data_exfiltration_http": {
+        "n": 15,
+        "mean_s": -0.9371,
+        "min_s": -3.9576,
+        "max_s": 0.0179
+      },
+      "full_kill_chain_it": {
+        "n": 26,
+        "mean_s": -1.2178,
+        "min_s": -7.9048,
+        "max_s": 0.0542
+      },
+      "lateral_movement_smb": {
+        "n": 9,
+        "mean_s": -0.8693,
+        "min_s": -2.3739,
+        "max_s": 0.0165
+      },
+      "network_discovery_scan": {
+        "n": 50,
+        "mean_s": -0.4017,
+        "min_s": -0.848,
+        "max_s": 0.0423
+      },
+      "persistence_scheduled_task": {
+        "n": 2,
+        "mean_s": 0.007,
+        "min_s": 0.006,
+        "max_s": 0.008
+      },
+      "privilege_escalation_token": {
+        "n": 3,
+        "mean_s": -0.1577,
+        "min_s": -0.489,
+        "max_s": 0.009
+      }
+    },
+    "measured_at": "2026-07-17T16:52:14.005689+00:00"
+  },
+  "chain_eval_summary": {
+    "n_scenarios": 9,
+    "n_with_any_tp": 9,
+    "n_chains_total": 9,
+    "attack_chain_detection_accuracy": 1.0,
+    "mean_technique_recall": 1.0,
+    "target_accuracy": 0.7,
+    "target_met": true,
+    "scenarios": [
+      {
+        "scenario": "brute_force_auth",
+        "ground_truth_techniques": [
+          "T1110"
+        ],
+        "detected_techniques": [
+          "T1110"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1110"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "credential_stuffing",
+        "ground_truth_techniques": [
+          "T1110.004"
+        ],
+        "detected_techniques": [
+          "T1110"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1110.004"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "lateral_movement_smb",
+        "ground_truth_techniques": [
+          "T1021.002",
+          "T1078"
+        ],
+        "detected_techniques": [
+          "T1021.002",
+          "T1078"
+        ],
+        "chains_found": 1,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1021.002",
+          "T1078"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "privilege_escalation_token",
+        "ground_truth_techniques": [
+          "T1134"
+        ],
+        "detected_techniques": [
+          "T1134"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1134"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "persistence_scheduled_task",
+        "ground_truth_techniques": [
+          "T1053.005"
+        ],
+        "detected_techniques": [
+          "T1053"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1053.005"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "command_execution_powershell",
+        "ground_truth_techniques": [
+          "T1059.001"
+        ],
+        "detected_techniques": [
+          "T1059.001"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1059.001"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "network_discovery_scan",
+        "ground_truth_techniques": [
+          "T1046"
+        ],
+        "detected_techniques": [
+          "T1046"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1046"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "data_exfiltration_http",
+        "ground_truth_techniques": [
+          "T1041"
+        ],
+        "detected_techniques": [
+          "T1041"
+        ],
+        "chains_found": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1041"
+        ],
+        "kb_missing": []
+      },
+      {
+        "scenario": "full_kill_chain_it",
+        "ground_truth_techniques": [
+          "T1110",
+          "T1021.002",
+          "T1059.001",
+          "T1041"
+        ],
+        "detected_techniques": [
+          "T1021.002",
+          "T1041",
+          "T1059.001",
+          "T1110"
+        ],
+        "chains_found": 1,
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "any_tp_detected": true,
+        "kb_coverage": [
+          "T1110",
+          "T1021.002",
+          "T1059.001",
+          "T1041"
+        ],
+        "kb_missing": []
+      }
+    ],
+    "measured_at": "2026-07-17T16:52:14.002872+00:00",
+    "kb_version": "ATT&CK-v15"
+  }
 }
