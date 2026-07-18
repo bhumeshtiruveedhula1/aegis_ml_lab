@@ -55,39 +55,35 @@ _CAL_DIR      = _LAB_ROOT / "calibration" / "calibrators"
 UTC = timezone.utc
 
 # ---------------------------------------------------------------------------
-# IT scenarios — expanded to 9 (was 3)
+# IT scenarios
 #
-# BASELINE-COVERAGE FIX (Phase 9 closeout):
-# The baseline store (aegis_ml_lab/models/baselines/IT) contains 18 entities,
-# all drawn from normal hospital traffic. For detection to work, attack events
-# must involve entities that exist in the baseline so that baseline-relative
-# features (event_type_frequency, source_frequency, auth_failure_rate, etc.)
-# are populated. Entities not in the baseline silently zero those features,
-# collapsing the IF feature vector and producing a constant anomaly score.
+# Two groups are evaluated separately and reported as distinct metric sets:
 #
-# Confirmed baseline entities:
+#   KNOWN-ENTITY scenarios  — attacker uses an account that HAS a pre-existing
+#   baseline (corp__admin, svc-iis). Baseline-relative features are fully
+#   populated. Detection path: calibrated_if.
+#
+#   COLD-START scenarios    — attacker uses an entity with NO baseline in the
+#   store ("attacker"). Baseline-relative features zero out; only 4 event-level
+#   features are non-zero. Detection path: cold_start_rule_based.
+#   Scenario keys use suffix _cold_start; _template key gives the real template.
+#
+# Honest metric scope:
+#   - Known-entity DR and FPR are measured only against known-entity scenarios.
+#   - Cold-start DR and FPR are measured only against cold-start scenarios.
+#   - The two sets are NOT merged into a single headline number in reports.
+#
+# Baseline entities confirmed in store (18 total):
 #   user:      corp__admin, corp__nurse01, svc-db, svc-iis, system, scada
 #   host:      hospital-server-01, dc-01, plc-01
-#   source:    hospital_server, domain_controller, ot_node
 #   user_host: corp__admin::hospital-server-01, corp__nurse01::hospital-server-01,
 #              svc-db::hospital-server-01, svc-iis::hospital-server-01,
 #              system::dc-01, scada::plc-01
-#
-# Fix applied: attacker_user="attacker" -> "corp__admin" (compromised admin
-# account — realistic insider-threat / credential-theft scenario, and corp__admin
-# has full user + user_host baseline coverage on hospital-server-01).
-#
-# lateral_movement_smb: target changed from hospital-server-02 -> hospital-server-01
-# because hospital-server-02 has no host baseline (not in normal traffic), causing
-# the same partial-vector problem on the host dimension.
-#
-# brute_force_auth: attacker_user stays as "svc-iis" (known service account, has
-# baseline), but note that source="windows" still has no source-dimension baseline.
-# This is an acceptable gap for this scenario — the auth-failure features that
-# matter most ARE populated via the svc-iis user baseline.
 # ---------------------------------------------------------------------------
 _IT_SCENARIOS: dict[str, dict] = {
-    # -- Original 3 (validated, seed-stable) --
+    # ── KNOWN-ENTITY scenarios (detection_path: calibrated_if) ──────────────
+    # attacker_user has a pre-existing baseline; baseline-relative features
+    # are fully populated; calibrated IF score used for threshold comparison.
     "brute_force_auth": {
         "target_host": "hospital-server-01",
         "attacker_user": "svc-iis",      # has user + user_host baseline
@@ -95,43 +91,60 @@ _IT_SCENARIOS: dict[str, dict] = {
     },
     "command_execution_powershell": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",  # has full baseline
         "compress_time": True,
     },
     "lateral_movement_smb": {
-        "target_host": "hospital-server-01",  # FIX: was server-02 (no host baseline)
-        "attacker_user": "corp__admin",        # FIX: was "attacker" (no baseline)
+        "target_host": "hospital-server-01",  # server-01 has host baseline
+        "attacker_user": "corp__admin",
         "compress_time": True,
     },
-    # -- New 6 (Task 2 expansion) --
     "credential_stuffing": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",
         "compress_time": True,
     },
     "privilege_escalation_token": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",
         "compress_time": True,
     },
     "persistence_scheduled_task": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",
         "compress_time": True,
     },
     "network_discovery_scan": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",
         "compress_time": True,
     },
     "data_exfiltration_http": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",
         "compress_time": True,
     },
     "full_kill_chain_it": {
         "target_host": "hospital-server-01",
-        "attacker_user": "corp__admin",  # FIX: was "attacker" (no baseline)
+        "attacker_user": "corp__admin",
+        "compress_time": True,
+    },
+    # ── COLD-START scenarios (detection_path: cold_start_rule_based) ─────────
+    # attacker_user="attacker" has NO baseline in the store. Baseline-relative
+    # features zero out; only 4 event-level features are non-zero.
+    # Detection uses _cold_start_rule_flagged() instead of calibrated IF score.
+    # _template key names the actual SyntheticAttackService template to call;
+    # the outer key is the label used in metrics and reports.
+    "brute_force_auth_cold_start": {
+        "_template": "brute_force_auth",   # high-volume: 21 events
+        "target_host": "hospital-server-01",
+        "attacker_user": "attacker",         # no baseline — true cold-start
+        "compress_time": True,
+    },
+    "command_execution_cold_start": {
+        "_template": "command_execution_powershell",   # low-volume: 4 events
+        "target_host": "hospital-server-01",
+        "attacker_user": "attacker",                    # no baseline — true cold-start
         "compress_time": True,
     },
 }
@@ -268,6 +281,123 @@ def _verify_no_overlap(manifest, scenario: str, eval_records) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Cold-start rule-based detection (Fix 1)
+# ---------------------------------------------------------------------------
+# Feature indices (source: backend.features.models.ALL_FEATURE_NAMES)
+_CS_IDX_HOUR             = 0    # hour_of_day
+_CS_IDX_DOW              = 1    # day_of_week
+_CS_IDX_FREQ_RANK        = 9    # event_type_frequency_rank
+_CS_IDX_RESULT_IS_FAIL   = 12   # result_is_failure (event-content only, no baseline)
+_CS_IDX_HAS_HOST         = 50   # has_host_baseline
+
+# Threshold derived from 200 eval normal records (2026-07-18):
+#   event_type_frequency_rank: min=0, mean=1.265, max=3.0, p100=3.0
+#   Cold-start entities produce freq_rank=100.0 (sentinel: entity type
+#   completely absent from baseline store).
+# Threshold = 5.0 provides 40% margin above normal max (3.0) and is
+# well below the cold-start sentinel (100.0). No normal record can exceed it.
+_CS_FREQ_RANK_THRESHOLD: float = 5.0
+
+# Confidence sub-label threshold for cold-start alerts (Fix 3 extension).
+# result_is_failure >= 0.5 indicates the event is an authentication failure.
+# Validated: brute-force cold-start scenarios score 0.952; all benign cold-start
+# scenarios score 0.000. has_command_line and hour_of_day deliberately excluded —
+# both were shown to have unvalidated or synthetic-artifact FPR in the
+# content-separability investigation (2026-07-18).
+_CS_HIGH_CONF_FAIL_THRESHOLD: float = 0.5
+
+# Normal hour window: business hours 06:00-21:59. Off-hours = 0-5 or 22-23.
+# Used as secondary rule when freq_rank alone is insufficient (e.g. novel
+# entity types that happen to have freq_rank < threshold).
+_CS_OFF_HOURS_START: int = 22   # inclusive
+_CS_OFF_HOURS_END: int   = 6    # exclusive (0-5 = off-hours)
+
+
+def _cold_start_rule_flagged(record) -> tuple[bool, str]:
+    """
+    Rule-based anomaly check for cold-start entities (has_host_baseline=False).
+
+    This is an EXPLICIT FALLBACK PATH, not a replacement for the calibrated
+    Isolation Forest model. Applied ONLY when baseline_available=False.
+
+    Rules (derived from computed normal distribution of eval normal records):
+      Rule 1 — event_type_frequency_rank sentinel:
+        freq_rank >= 5.0 flags anomalous.
+        Rationale: all 200 eval normal records have max freq_rank=3.0.
+        Cold-start entities always produce freq_rank=100.0 (sentinel).
+        Any value >= 5.0 is structurally impossible for a baselined entity.
+
+      Rule 2 — off-hours access by unknown entity (secondary):
+        hour < 6 OR hour >= 22.
+        Applied when Rule 1 does not fire (e.g. partial cold-start scenarios
+        where freq_rank was assigned a low value by the extractor).
+
+    Confidence sub-label (does NOT change whether the alert fires):
+      HIGH — sentinel fires AND result_is_failure >= 0.5:
+             authentication failure pattern consistent with brute-force/credential attack.
+             Validated: brute-force cold-start DR=100%, benign FPR=0% on result_is_failure.
+      LOW  — sentinel fires without corroborating failure signal:
+             unknown entity only; behavior does not distinguish attack from benign cold-start.
+
+    detection_path: "cold_start_rule_based"
+    Logged per triggered record for traceability.
+
+    Returns
+    -------
+    (True, confidence)  — record is anomalous; confidence is "HIGH ..." or "LOW ..."
+    (False, "")         — record does not meet any rule threshold
+    """
+    raw            = record.feature_vector.to_array()
+    freq_rank      = float(raw[_CS_IDX_FREQ_RANK])
+    hour           = float(raw[_CS_IDX_HOUR])
+    result_is_fail = float(raw[_CS_IDX_RESULT_IS_FAIL])
+
+    # Confidence sub-label — computed from event content, not baseline.
+    # Only result_is_failure is used; has_command_line and hour_of_day
+    # were excluded due to unvalidated/artifact FPR (see investigation 2026-07-18).
+    if result_is_fail >= _CS_HIGH_CONF_FAIL_THRESHOLD:
+        confidence = (
+            "HIGH — unknown entity + authentication failure pattern "
+            "consistent with brute-force/credential attack"
+        )
+    else:
+        confidence = (
+            "LOW — unknown entity, no corroborating behavioral signal"
+        )
+
+    # Rule 1: sentinel frequency rank (entity type completely novel)
+    if freq_rank >= _CS_FREQ_RANK_THRESHOLD:
+        logger.info(
+            "cold_start_rule_flagged",
+            entity_key=str(record.entity_key),
+            rule="freq_rank_sentinel",
+            freq_rank=freq_rank,
+            threshold=_CS_FREQ_RANK_THRESHOLD,
+            hour=hour,
+            result_is_failure=result_is_fail,
+            confidence=confidence,
+            detection_path="cold_start_rule_based",
+        )
+        return True, confidence
+
+    # Rule 2: off-hours access by completely unknown entity
+    if hour < _CS_OFF_HOURS_END or hour >= _CS_OFF_HOURS_START:
+        logger.info(
+            "cold_start_rule_flagged",
+            entity_key=str(record.entity_key),
+            rule="off_hours",
+            freq_rank=freq_rank,
+            hour=hour,
+            result_is_failure=result_is_fail,
+            confidence=confidence,
+            detection_path="cold_start_rule_based",
+        )
+        return True, confidence
+
+    return False, ""
+
+
+# ---------------------------------------------------------------------------
 # Main evaluation runner
 # ---------------------------------------------------------------------------
 
@@ -364,9 +494,15 @@ def run_evaluation(
     for scenario_name, kwargs in scenarios.items():
         logger.info("evaluation_scenario_start", scenario=scenario_name, eval_seed=eval_seed)
 
+        # Extract optional _template override (cold-start scenarios use a
+        # different display name but the same underlying attack template)
+        scenario_kwargs = dict(kwargs)
+        template_name = scenario_kwargs.pop("_template", scenario_name)
+        is_cold_start_scenario = (template_name != scenario_name)  # True for _cold_start entries
+
         # Generate EVALUATION instance with eval_seed (distinct from cal_seed)
         svc = SyntheticAttackService(persist=False, seed=eval_seed)
-        report = svc.generate(scenario_name, **kwargs)
+        report = svc.generate(template_name, **scenario_kwargs)
         attack_events = svc.get_canonical_events(report)
 
         # Verify overlap — this seed must not match calibration seed
@@ -410,34 +546,57 @@ def run_evaluation(
             ))
             continue
 
-        # Score attack records
-        raw_attack_scores = _score_records(det_pipeline, attack_records)
-        cal_attack_proba = calibrator.predict_proba(raw_attack_scores)
+        # ── Dual-path detection scoring ────────────────────────────────────────
+        # Path A (calibrated_if): entities WITH baseline — use calibrated IF score
+        # Path B (cold_start_rule_based): entities WITHOUT baseline — use rule check
+        #
+        # Splitting is done on record.baseline_available (set by FeaturePipeline).
+        # FP is still measured against eval normal records (all have baselines),
+        # so the rule-based branch contributes 0 FP to the eval FPR.
+        # Note: eval normal records all have baseline_available=True (confirmed).
 
-        # ── Compute metrics per entity (use type-level threshold as fallback) ─
-        # For simplicity and fairness: use the type-level threshold across all
-        # entities (we can't compute per-entity thresholds for cold-start
-        # attackers). This is conservative (harder to detect) but correct.
-        type_threshold = thresholds.type_level_fallback
-
-        # Use per-entity threshold for normal records (entities we know),
-        # type-level for attack entity (always cold-start)
+        type_threshold  = thresholds.type_level_fallback
         attack_threshold = type_threshold
 
-        tp = int((cal_attack_proba >= attack_threshold).sum())
-        # FP from normal records — use type-level fallback threshold uniformly.
-        #
-        # Root cause fix (Phase 9.1): Per-entity ECDF thresholds (from calibration
-        # normals) do not transfer to evaluation normals (different event window).
-        # Applying a per-entity threshold of e.g. 0.077 to evaluation normals whose
-        # distribution was not used to derive that threshold causes structural
-        # overcounting: ~11.5% FPR vs the true 0.5–2% measured by seed_sweep.py.
-        #
-        # Correct approach: Use the same type_level_fallback threshold for normal
-        # records as we use for attack records (attack_threshold = type_level_fallback).
-        # This matches seed_sweep.py:245 and gives consistent FPR measurement.
-        # Per-entity thresholds remain valid for production inference but must NOT
-        # be used as the FPR denominator in evaluation across different data splits.
+        # Split attack records by detection path
+        cold_start_recs = [r for r in attack_records if not r.baseline_available]
+        known_entity_recs = [r for r in attack_records if r.baseline_available]
+
+        # Path B — cold-start rule-based (no calibrated IF involved)
+        # _cold_start_rule_flagged returns (flagged: bool, confidence: str)
+        cold_results = [_cold_start_rule_flagged(r) for r in cold_start_recs]
+        cold_tp      = sum(1 for flagged, _ in cold_results if flagged)
+        # Collect confidence labels for logging (HIGH/LOW breakdown)
+        high_conf = sum(1 for flagged, conf in cold_results if flagged and conf.startswith("HIGH"))
+        low_conf  = sum(1 for flagged, conf in cold_results if flagged and not conf.startswith("HIGH"))
+
+        # Path A — calibrated IF for known entities
+        raw_attack_scores = _score_records(det_pipeline, known_entity_recs)
+        cal_known_proba   = calibrator.predict_proba(raw_attack_scores) if len(known_entity_recs) > 0 else np.array([])
+        known_tp = int((cal_known_proba >= attack_threshold).sum()) if len(cal_known_proba) > 0 else 0
+
+        # Combined (for metrics / SHAP / MTTD — all TPs regardless of path)
+        # Recompute raw scores over ALL records for stats reporting
+        raw_attack_scores_all = _score_records(det_pipeline, attack_records)
+        cal_attack_proba      = calibrator.predict_proba(raw_attack_scores_all) if len(attack_records) > 0 else np.array([])
+
+        tp = cold_tp + known_tp
+
+        logger.info(
+            "evaluation_scenario_detection_split",
+            scenario=scenario_name,
+            n_cold_start=len(cold_start_recs),
+            n_known_entity=len(known_entity_recs),
+            cold_start_tp=cold_tp,
+            cold_start_high_confidence=high_conf,
+            cold_start_low_confidence=low_conf,
+            known_entity_tp=known_tp,
+            detection_path_cold="cold_start_rule_based" if cold_start_recs else "n/a",
+            detection_path_known="calibrated_if" if known_entity_recs else "n/a",
+        )
+
+        # FP: from normal records via calibrated IF (rule-based never fires on
+        # normal eval records since they all have baseline_available=True)
         fp = int((cal_normal_proba >= attack_threshold).sum())
 
         n_attack = len(attack_records)

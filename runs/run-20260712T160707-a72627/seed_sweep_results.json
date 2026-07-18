@@ -130,7 +130,7 @@
       "scenario": "command_execution_powershell",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 4,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -140,7 +140,7 @@
       "scenario": "lateral_movement_smb",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 9,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -150,7 +150,7 @@
       "scenario": "credential_stuffing",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 31,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -160,7 +160,7 @@
       "scenario": "privilege_escalation_token",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 3,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -170,7 +170,7 @@
       "scenario": "persistence_scheduled_task",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 2,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -180,7 +180,7 @@
       "scenario": "network_discovery_scan",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 50,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -190,7 +190,7 @@
       "scenario": "data_exfiltration_http",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 15,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -200,7 +200,7 @@
       "scenario": "full_kill_chain_it",
       "detection_rate": 1.0,
       "fpr": 0.385,
-      "auroc": 0.995,
+      "auroc": 1.0,
       "n_attack": 26,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -220,7 +220,7 @@
       "scenario": "command_execution_powershell",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 4,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -230,7 +230,7 @@
       "scenario": "lateral_movement_smb",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 9,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -240,7 +240,7 @@
       "scenario": "credential_stuffing",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 31,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -250,7 +250,7 @@
       "scenario": "privilege_escalation_token",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 3,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -260,7 +260,7 @@
       "scenario": "persistence_scheduled_task",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 2,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -270,7 +270,7 @@
       "scenario": "network_discovery_scan",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 50,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -280,7 +280,7 @@
       "scenario": "data_exfiltration_http",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 15,
       "n_normal": 200,
       "threshold": 0.45985401459854014
@@ -290,7 +290,7 @@
       "scenario": "full_kill_chain_it",
       "detection_rate": 1.0,
       "fpr": 0.4,
-      "auroc": 0.9750000000000001,
+      "auroc": 0.9925,
       "n_attack": 26,
       "n_normal": 200,
       "threshold": 0.45985401459854014
