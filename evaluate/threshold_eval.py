@@ -301,6 +301,7 @@ def _eval_fpr_vs_target(raw_metrics_path: Path) -> CriterionResult:
     scenarios = metrics.get("scenarios", [])
     fprs = [s["fpr"] for s in scenarios if not s.get("no_attack_records", False)]
     mean_fpr = sum(fprs) / len(fprs) if fprs else 1.0
+    logger.info("fpr_computation", raw_fprs=fprs, mean_fpr=mean_fpr)
 
     # Check: are all scenario FPRs below target?
     all_below = all(f <= _FPR_TARGET for f in fprs)
@@ -357,6 +358,13 @@ def run_threshold_evaluation(run_id: str | None = None) -> ThresholdEvalReport:
 
     latest_run_id = tr.run_id
     raw_metrics_path = _RUNS_DIR / latest_run_id / "raw_metrics.json"
+    eval_results_path = _RUNS_DIR / latest_run_id / "threshold_eval_results.json"
+    if eval_results_path.exists() and raw_metrics_path.exists():
+        if eval_results_path.stat().st_mtime < raw_metrics_path.stat().st_mtime:
+            logger.warning(
+                "threshold_eval_stale",
+                msg="Existing threshold_eval_results.json is older than raw_metrics.json. Recomputing."
+            )
 
     logger.info(
         "threshold_eval_started",

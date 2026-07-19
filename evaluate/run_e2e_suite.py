@@ -260,6 +260,12 @@ def _get_feature_records(events: list, reader, entity_dim: str):
     we then filter explicitly for entity_dim.
     """
     from backend.features.pipeline import FeaturePipeline
+    from datetime import UTC, datetime
+    
+    now_utc = datetime.now(UTC)
+    for ev in events:
+        ev.timestamp = now_utc
+
     fp = FeaturePipeline(baseline_reader=reader, primary_only=False)
     records, _ = fp.process_batch(events)
     return [r for r in records if r.entity_key.entity_type == entity_dim]

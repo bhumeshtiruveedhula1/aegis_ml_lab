@@ -1,13 +1,13 @@
 {
   "run_id": "run-20260715T023436-74702a",
   "entity_type": "IT",
-  "total_alerts": 200,
+  "total_alerts": 518,
   "feature_counts": {
-    "time_since_last_seen_hours": 180,
-    "day_baseline_frequency": 21,
-    "has_command_line": 200,
-    "has_user_baseline": 20,
-    "day_of_week": 8,
+    "time_since_last_seen_hours": 496,
+    "day_baseline_frequency": 295,
+    "has_command_line": 256,
+    "has_user_baseline": 22,
+    "day_of_week": 314,
     "baseline_window_days": 150,
     "hour_relative_frequency": 21
   }
