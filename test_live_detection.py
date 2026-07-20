@@ -13,6 +13,9 @@ from backend.synthetic_attack.service import SyntheticAttackService
 from backend.features.pipeline import FeaturePipeline
 
 svc = DetectionService(auto_load=True)
+if svc._scorer is None:
+    print("No model loaded — run export_to_production.py first")
+    sys.exit(1)
 reader = BaselineReader(baseline_dir=Path('models/baselines/IT'))
 fp = FeaturePipeline(baseline_reader=reader, primary_only=False)
 

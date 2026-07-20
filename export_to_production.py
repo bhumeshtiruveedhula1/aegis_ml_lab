@@ -138,7 +138,7 @@ def export_to_production(run_id: str, entity_type: str = "IT") -> Path:
     print(f"  Model pkl     : {model_path}")
     print(f"  Metadata      : {meta_path}")
     print(f"  Calibrator    : {'written' if cal_written else 'NOT FOUND - ' + str(cal_src)}")
-    print(f"  Cal threshold : {'written' if thr_written else 'NOT FOUND - ' + str(thr_src)}")
+    print(f"  Cal threshold : {'written' if thr_written else 'NOT FOUND - ' + str(metrics_src)}")
     print(f"  Store dir     : {store._dir.resolve()}")
     print(f"\n  Threshold note:")
     print(f"    calibrated_threshold used by production scorer = type-level ECDF fallback")
